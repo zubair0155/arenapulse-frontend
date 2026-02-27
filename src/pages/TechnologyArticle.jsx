@@ -1,136 +1,219 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
 import { supabase } from "../supabaseClient";
-import "./technology.css";
+import { Helmet } from "react-helmet-async";
+import "./article.css";
 
-export default function Technology() {
-  const [techArticles, setTechArticles] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const articlesPerPage = 10;
+export default function TechnologyArticle() {
 
+  const { id } = useParams();
+  const [article, setArticle] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [openShare, setOpenShare] = useState(false);
+  const shareRef = useRef(null);
+
+  const url = window.location.href;
+
+  /* -------- LOAD ARTICLE FROM SUPABASE -------- */
   useEffect(() => {
-    async function fetchArticles() {
+    const fetchArticle = async () => {
       try {
 
         const { data, error } = await supabase
           .from("articles")
-          .select("*")
-          .ilike("category", "technology")   // ✅ CHANGED HERE
-          .order("created_at", { ascending: false });
+          .select("id,title,summary,content,image,position,created_at")
+          .eq("id", id)
+          .single();
 
         if (error) {
-          console.error("Error loading technology articles:", error.message);
+          console.error("Error loading article:", error.message);
+          setLoading(false);
           return;
         }
 
-        const formatted = data.map(article => ({
-          id: article.id,
-          title: article.title,
-          image: article.image || "",
-          summary: article.summary,
-          excerpt: article.summary,
-          content: article.content,
-          category: "Technology",
-          author: "Admin",
-          views: 0,
-          date: article.created_at
-            ? new Date(article.created_at).toLocaleDateString()
-            : ""
-        }));
+        setArticle(data);
+        setLoading(false);
 
-        setTechArticles(formatted);
+      } catch (err) {
+        console.error("Error loading article:", err);
+        setLoading(false);
+      }
+    };
 
-      } catch (error) {
-        console.error("Error loading technology articles:", error);
+    fetchArticle();
+  }, [id]);
+
+  /* -------- ADS INIT FIX (IMPORTANT) -------- */
+  useEffect(() => {
+    if (article) {
+      const timer = setTimeout(() => {
+        try {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+          console.log("Ad load error:", e);
+        }
+      }, 900);
+
+      return () => clearTimeout(timer);
+    }
+  }, [article]);
+
+  /* CLOSE SHARE WHEN CLICK OUTSIDE */
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (shareRef.current && !shareRef.current.contains(e.target)) {
+        setOpenShare(false);
       }
     }
 
-    fetchArticles();
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const sortedArticles = [...techArticles];
+  if (loading) return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
+  if (!article) return <h2 style={{ textAlign: "center" }}>Article not found</h2>;
 
-  const indexOfLast = currentPage * articlesPerPage;
-  const indexOfFirst = indexOfLast - articlesPerPage;
-  const currentArticles = sortedArticles.slice(indexOfFirst, indexOfLast);
+  /* -------- SHARE FUNCTIONS -------- */
+  const share = (type) => {
+    const text = article.title + " " + url;
 
-  const totalPages = Math.ceil(sortedArticles.length / articlesPerPage);
+    if (type === "facebook")
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, "_blank");
 
-  const featured = sortedArticles.slice(0, 3);
+    if (type === "twitter")
+      window.open(`https://twitter.com/intent/tweet?text=${text}`, "_blank");
 
-  if (techArticles.length === 0) {
-    return <div className="technology-page">Loading Technology Articles...</div>;
-  }
+    if (type === "whatsapp")
+      window.open(`https://api.whatsapp.com/send?text=${text}`, "_blank");
+
+    if (type === "email")
+      window.open(`mailto:?subject=${article.title}&body=${text}`);
+  };
+
+  const copyLink = async () => {
+    await navigator.clipboard.writeText(url);
+    alert("Link copied!");
+  };
 
   return (
-    <div className="technology-page">
+    <>
+      <Helmet>
+        <title>{article.title} | ArenaPulse</title>
 
-      {/* TOP 3 FEATURED */}
-      <div className="tech-featured">
-        {featured[0] && (
-          <Link to={`/tech/${featured[0].id}`} className="featured-main">
-            <img src={featured[0].image} alt="" />
-            <h2>{featured[0].title}</h2>
-          </Link>
-        )}
+        <meta
+          name="description"
+          content={article.summary || "Latest news and technology updates from ArenaPulse"}
+        />
 
-        <div className="featured-side">
-          {featured.slice(1, 3).map((article) => (
-            <Link key={article.id} to={`/tech/${article.id}`}>
-              <img src={article.image} alt="" />
-              <h3>{article.title}</h3>
-            </Link>
-          ))}
+        <meta property="og:title" content={article.title} />
+        <meta property="og:description" content={article.summary || article.title} />
+        <meta property="og:image" content={article.image} />
+        <meta property="og:url" content={url} />
+        <meta property="og:type" content="article" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={article.title} />
+        <meta name="twitter:description" content={article.summary || article.title} />
+        <meta name="twitter:image" content={article.image} />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            headline: article.title,
+            image: article.image,
+            datePublished: article.created_at,
+            description: article.summary,
+            mainEntityOfPage: url
+          })}
+        </script>
+      </Helmet>
+
+      <div className="article-page">
+        <div className="article-layout">
+
+          <div className="article-main">
+
+            <div className="title-row">
+              <button className="back-btn" onClick={() => window.history.back()}>
+                ← Back
+              </button>
+              <h1 className="article-title">{article.title}</h1>
+            </div>
+
+            {article.image && (
+              <div className="image-wrapper">
+
+                <img
+                  src={article.image}
+                  className="article-image"
+                  alt={article.title}
+                  loading="lazy"
+                />
+
+                <div className="share-corner" ref={shareRef}>
+                  <button
+                    className="share-btn"
+                    onClick={(e)=>{
+                      e.stopPropagation();
+                      setOpenShare(prev=>!prev);
+                    }}
+                  >
+                    ↗ Share
+                  </button>
+
+                  {openShare && (
+                    <div className="share-dropdown">
+                      <div onClick={() => share("facebook")}>Facebook</div>
+                      <div onClick={() => share("twitter")}>Twitter</div>
+                      <div onClick={() => share("whatsapp")}>WhatsApp</div>
+                      <div onClick={() => share("email")}>Email</div>
+                      <hr />
+                      <div onClick={copyLink}>Copy link</div>
+                    </div>
+                  )}
+
+                </div>
+
+              </div>
+            )}
+
+            <div className="article-content">
+              {article.content}
+            </div>
+
+          </div>
+
+          {/* Sidebar Ads */}
+          <aside className="article-sidebar">
+            <div className="ad-square-stack">
+
+              <div className="ad-300x250">
+                <ins className="adsbygoogle"
+                  style={{ display: "block", width: "300px", height: "250px" }}
+                  data-ad-client="ca-pub-xxxxxxxxxxxxx"
+                  data-ad-slot="1111111111"
+                  data-ad-format="auto"
+                  data-full-width-responsive="false">
+                </ins>
+              </div>
+
+              <div className="ad-300x250" style={{ marginTop: "20px" }}>
+                <ins className="adsbygoogle"
+                  style={{ display: "block", width: "300px", height: "250px" }}
+                  data-ad-client="ca-pub-xxxxxxxxxxxxx"
+                  data-ad-slot="2222222222"
+                  data-ad-format="auto"
+                  data-full-width-responsive="false">
+                </ins>
+              </div>
+
+            </div>
+          </aside>
+
         </div>
       </div>
-
-      {/* Horizontal Google Ad */}
-      <div className="ad-horizontal">
-        Google Ad 728x90
-      </div>
-
-      {/* 10 Articles */}
-      <div className="tech-list">
-        {currentArticles.map((article) => (
-          <Link
-            key={article.id}
-            to={`/tech/${article.id}`}
-            className="tech-row"
-          >
-            <div className="tech-text">
-              <div className="meta">
-                <span>{article.views} Views</span>
-                <span className="category">{article.category}</span>
-              </div>
-
-              <h3>{article.title}</h3>
-              <p>{article.excerpt}</p>
-
-              <div className="author">
-                by {article.author} • {article.date}
-              </div>
-            </div>
-
-            <div className="tech-image">
-              <img src={article.image} alt="" />
-            </div>
-          </Link>
-        ))}
-      </div>
-
-      {/* Pagination */}
-      <div className="pagination">
-        {Array.from({ length: totalPages }, (_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrentPage(i + 1)}
-            className={currentPage === i + 1 ? "active" : ""}
-          >
-            {i + 1}
-          </button>
-        ))}
-      </div>
-
-    </div>
+    </>
   );
 }
