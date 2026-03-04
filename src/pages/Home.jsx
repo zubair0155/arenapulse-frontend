@@ -28,9 +28,10 @@ export default function Home() {
       try {
 
         const { data, error } = await supabase
-          .from("articles")
-          .select("*")
-          .order("created_at", { ascending: false });
+         .from("articles")
+         .select("*")
+         .eq("category", "news")   // 👈 THIS LINE IS IMPORTANT
+         .order("created_at", { ascending: false });
 
         if (error) {
           console.error("Error loading articles:", error.message);

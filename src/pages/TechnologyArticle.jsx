@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { supabase } from "../supabaseClient";
 import { Helmet } from "react-helmet-async";
-import "./article.css";
+import "./technology-article.css";
 
 export default function TechnologyArticle() {
 
@@ -18,7 +18,6 @@ export default function TechnologyArticle() {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-
         const { data, error } = await supabase
           .from("articles")
           .select("id,title,summary,content,image,position,created_at")
@@ -43,17 +42,19 @@ export default function TechnologyArticle() {
     fetchArticle();
   }, [id]);
 
-  /* -------- ADS INIT FIX (IMPORTANT) -------- */
+  /* -------- ADS INIT FIX -------- */
   useEffect(() => {
     if (article) {
       const timer = setTimeout(() => {
         try {
           (window.adsbygoogle = window.adsbygoogle || []).push({});
           (window.adsbygoogle = window.adsbygoogle || []).push({});
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
         } catch (e) {
           console.log("Ad load error:", e);
         }
-      }, 900);
+      }, 1000);
 
       return () => clearTimeout(timer);
     }
@@ -73,6 +74,10 @@ export default function TechnologyArticle() {
 
   if (loading) return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
   if (!article) return <h2 style={{ textAlign: "center" }}>Article not found</h2>;
+
+  const paragraphs = article.content
+    ? article.content.split("\n")
+    : [];
 
   /* -------- SHARE FUNCTIONS -------- */
   const share = (type) => {
@@ -130,21 +135,26 @@ export default function TechnologyArticle() {
         </script>
       </Helmet>
 
-      <div className="article-page">
+      <div className="technology-article-page">
         <div className="article-layout">
 
           <div className="article-main">
 
-            <div className="title-row">
-              <button className="back-btn" onClick={() => window.history.back()}>
+            <div className="title-section">
+              <button
+                className="back-btn"
+                onClick={() => window.history.back()}
+              >
                 ← Back
               </button>
-              <h1 className="article-title">{article.title}</h1>
+
+              <h1 className="article-title">
+                {article.title}
+              </h1>
             </div>
 
             {article.image && (
               <div className="image-wrapper">
-
                 <img
                   src={article.image}
                   className="article-image"
@@ -173,19 +183,50 @@ export default function TechnologyArticle() {
                       <div onClick={copyLink}>Copy link</div>
                     </div>
                   )}
-
                 </div>
-
               </div>
             )}
 
+            {/* -------- ARTICLE CONTENT WITH 2 ADS -------- */}
             <div className="article-content">
-              {article.content}
+              {paragraphs.map((para, index) => (
+                <div key={index}>
+                  <p>{para}</p>
+
+                  {/* Mid Article Ad (after 8th paragraph) */}
+                  {index === 7 && (
+                    <div className="mid-article-ad">
+                      <ins
+                        className="adsbygoogle"
+                        style={{ display: "block" }}
+                        data-ad-client="ca-pub-xxxxxxxxxxxxx"
+                        data-ad-slot="3333333333"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"
+                      ></ins>
+                    </div>
+                  )}
+
+                  {/* Last Paragraph Ad */}
+                  {index === paragraphs.length - 1 && (
+                    <div className="mid-article-ad">
+                      <ins
+                        className="adsbygoogle"
+                        style={{ display: "block" }}
+                        data-ad-client="ca-pub-xxxxxxxxxxxxx"
+                        data-ad-slot="4444444444"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"
+                      ></ins>
+                    </div>
+                  )}
+
+                </div>
+              ))}
             </div>
 
           </div>
 
-          {/* Sidebar Ads */}
           <aside className="article-sidebar">
             <div className="ad-square-stack">
 
@@ -194,20 +235,20 @@ export default function TechnologyArticle() {
                   style={{ display: "block", width: "300px", height: "250px" }}
                   data-ad-client="ca-pub-xxxxxxxxxxxxx"
                   data-ad-slot="1111111111"
-                  data-ad-format="auto"
+                  data-ad-format="rectangle"
                   data-full-width-responsive="false">
                 </ins>
               </div>
 
-              <div className="ad-300x250" style={{ marginTop: "20px" }}>
-                <ins className="adsbygoogle"
-                  style={{ display: "block", width: "300px", height: "250px" }}
-                  data-ad-client="ca-pub-xxxxxxxxxxxxx"
-                  data-ad-slot="2222222222"
-                  data-ad-format="auto"
-                  data-full-width-responsive="false">
-                </ins>
-              </div>
+              <div className="sidebar-affiliate-box">
+                 <a href="YOUR_AFFILIATE_LINK" target="_blank" rel="noopener noreferrer">
+                   <img
+                     src="YOUR_AFFILIATE_IMAGE_URL"
+                     alt="affiliate banner"
+                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                   />
+                 </a>
+               </div>
 
             </div>
           </aside>

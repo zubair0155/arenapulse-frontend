@@ -63,7 +63,7 @@
 .square-ad {
   width: 300px;
   height: 250px;
-  background: #eee;
+  background: #ebebeb;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,4 +152,145 @@
 
 .tech-row:hover h3 {
   color: #0077cc;
+}
+/* Ad Label Only — No Background Box */
+
+.tech-horizontal-ad{
+  width:100%;
+  text-align:center;
+  margin:30px 0;
+}
+
+/* Adsense container must stay clean */
+.tech-horizontal-ad ins{
+  display:block;
+  width:100%;
+}
+
+/* Only Advertisement Text */
+.tech-horizontal-ad::before{
+  content:"Advertisement";
+  display:block;
+  font-size:12px;
+  color:#888;
+  letter-spacing:0.5px;
+  margin-bottom:8px;
+  text-transform:uppercase;
+}
+.tech-horizontal-ad-top,
+.tech-horizontal-ad-bottom{
+  width:970px;
+  height:90px;
+  background:#d6d6d6;
+  margin:20px auto;
+  border-radius:4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+/* Adsense iframe fix */
+.tech-horizontal-ad-top ins,
+.tech-horizontal-ad-bottom ins,
+.tech-horizontal-ad-top iframe,
+.tech-horizontal-ad-bottom iframe{
+  width:970px !important;
+  height:90px !important;
+  display:block !important;
+}
+/* ===== TOP 3 HEADLINES FIX ===== */
+
+.tech-featured{
+  display: flex;
+  gap: 20px;
+}
+
+.featured-main{
+  flex: 2;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0px;
+}
+
+.featured-main img{
+  width: 100%;
+  height: 420px;     /* FIXED HEIGHT */
+  object-fit: cover;
+  display: block;
+}
+
+.featured-side{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.featured-side a{
+  position: relative;
+  overflow: hidden;
+  border-radius: 0px;
+}
+
+.featured-side img{
+  width: 100%;
+  height: 200px;    /* FIXED HEIGHT */
+  object-fit: cover;
+  display: block;
+}
+/* ===== TEXT OVER IMAGE ===== */
+
+.featured-main-text,
+.featured-side-text{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0));
+  color: #fff;
+}
+
+.featured-main-text h2{
+  margin: 0;
+  font-size: 22px;
+}
+
+.featured-main-text p{
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.featured-side-text h3{
+  margin: 0;
+  font-size: 15px;
+}
+@media (max-width: 900px){
+  .tech-featured{
+    flex-direction: column;
+  }
+
+  .featured-main img{
+    height: 300px;
+  }
+
+  .featured-side img{
+    height: 180px;
+  }
+}
+/* Author */
+.tech-author{
+  font-size: 12px;
+  font-weight: 600;
+  font-style: italic;
+  color: #2c744c;
+  margin-bottom: 6px;
+}
+
+/* Date */
+.tech-date{
+  font-size: 12px;
+  color: #292929;
+  margin-top: 60px;
 }

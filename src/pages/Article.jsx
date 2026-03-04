@@ -48,6 +48,11 @@ export default function Article() {
     if (article) {
       const timer = setTimeout(() => {
         try {
+          // sidebar ad
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+          // mid article ad
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+          // last article ad
           (window.adsbygoogle = window.adsbygoogle || []).push({});
         } catch (e) {}
       }, 900);
@@ -70,6 +75,11 @@ export default function Article() {
 
   if (loading) return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
   if (!article) return <h2 style={{ textAlign: "center" }}>Article not found</h2>;
+
+  // ✅ SPLIT CONTENT INTO PARAGRAPHS
+  const paragraphs = article.content
+    ? article.content.split("\n")
+    : [];
 
   /* -------- SHARE FUNCTIONS -------- */
   const share = (type) => {
@@ -115,7 +125,6 @@ export default function Article() {
         <meta name="twitter:description" content={article.summary || article.title} />
         <meta name="twitter:image" content={article.image} />
 
-        {/* Structured Data for Google */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -128,18 +137,32 @@ export default function Article() {
           })}
         </script>
       </Helmet>
+      <div className="top-affiliate-banner">
+         <a href="YOUR_AFFILIATE_LINK" target="_blank" rel="noopener noreferrer">
+            <img
+               src="YOUR_BANNER_IMAGE_URL"
+               alt="Affiliate Banner"
+           />
+         </a>
+      </div>
 
-      <div className="article-page">
+      <div className="news-article-page">
         <div className="article-layout">
 
           <div className="article-main">
 
-            <div className="title-row">
-              <button className="back-btn" onClick={() => window.history.back()}>
-                ← Back
-              </button>
-              <h1 className="article-title">{article.title}</h1>
-            </div>
+          <div className="title-section">
+             <button
+               className="back-btn"
+               onClick={() => window.history.back()}
+             >
+               ← Back
+             </button>
+
+           <h1 className="article-title">
+             {article.title}
+           </h1>
+         </div>
 
             {article.image && (
               <div className="image-wrapper">
@@ -178,8 +201,42 @@ export default function Article() {
               </div>
             )}
 
+            {/* ✅ UPDATED ARTICLE CONTENT WITH 2 ADS */}
             <div className="article-content">
-              {article.content}
+              {paragraphs.map((para, index) => (
+                <div key={index}>
+                  <p>{para}</p>
+
+                  {/* Mid Article Ad (after 8th paragraph) */}
+                  {index === 7 && (
+                    <div className="mid-article-ad">
+                      <ins
+                        className="adsbygoogle"
+                        style={{ display: "block" }}
+                        data-ad-client="ca-pub-xxxxxxxxxxxxx"
+                        data-ad-slot="7777777777"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"
+                      ></ins>
+                    </div>
+                  )}
+
+                  {/* Last Paragraph Ad */}
+                  {index === paragraphs.length - 1 && (
+                    <div className="mid-article-ad">
+                      <ins
+                        className="adsbygoogle"
+                        style={{ display: "block" }}
+                        data-ad-client="ca-pub-xxxxxxxxxxxxx"
+                        data-ad-slot="8888888888"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"
+                      ></ins>
+                    </div>
+                  )}
+
+                </div>
+              ))}
             </div>
 
           </div>

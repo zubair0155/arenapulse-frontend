@@ -9,6 +9,8 @@ import Article from "./pages/Article";
 import About from "./pages/About";
 import Technology from "./pages/Technology";
 import TechnologyArticle from "./pages/TechnologyArticle";
+import Footer from "./components/Footer";
+import Privacy from "./pages/Privacy";
 
 function App() {
   return (
@@ -22,7 +24,7 @@ function App() {
         />
       </Helmet>
 
-      <h1 className="logo">ArenaPulse</h1>
+      <h1 className="site-logo">ArenaPulse</h1>
 
       {/* NAVIGATION */}
       <nav className="nav">
@@ -42,9 +44,10 @@ function App() {
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/about" element={<About />} />
         <Route path="/technology" element={<Technology />} />
-        <Route path="/tech/:id" element={<TechnologyArticle />} />        
+        <Route path="/tech/:id" element={<TechnologyArticle />} />  
+        <Route path="/privacy" element={<Privacy />} />      
       </Routes>
-
+      <Footer />
     </div>
   );
 }
