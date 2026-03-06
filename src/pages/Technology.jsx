@@ -114,7 +114,7 @@ export default function Technology() {
           className="adsbygoogle"
           style={{
            display: "block",
-           width: "970px",
+           width: "970",
            height: "90px",
            overflow: "hidden"
          }}

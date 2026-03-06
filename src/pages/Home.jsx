@@ -132,10 +132,10 @@ export default function Home() {
       <div className="home-ad">
         <ins
           className="adsbygoogle"
-          style={{ display: "block", minHeight: "280px" }}
+          style={{ display: "block", width: "970px", height: "90px" }}
           data-ad-client="ca-pub-xxxxxxxxxxxxx"
           data-ad-slot="1111111111"
-          data-ad-format="auto"
+          data-ad-format="horizontal"
           data-full-width-responsive="true"
         ></ins>
       </div>
@@ -163,10 +163,10 @@ export default function Home() {
       <div className="home-ad">
         <ins
           className="adsbygoogle"
-          style={{ display: "block", minHeight: "280px" }}
+          style={{ display: "block", width: "970px", height: "90px" }}
           data-ad-client="ca-pub-xxxxxxxxxxxxx"
           data-ad-slot="2222222222"
-          data-ad-format="auto"
+          data-ad-format="horizontal"
           data-full-width-responsive="true"
         ></ins>
       </div>
