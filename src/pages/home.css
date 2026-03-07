@@ -11,6 +11,7 @@
   letter-spacing: 1px;
   cursor: pointer;
 }
+
 /* ---------------- HEADLINES ---------------- */
 
 .headlines{
@@ -117,12 +118,14 @@
   font-size:13px;
   color:#555;
 }
+
 .home-ad{
   background:#d8d7d7;
   padding:12px 0;
   margin:20px 0;
   border-radius:6px;
 }
+
 /* MORE BUTTON */
 
 .more-btn{
@@ -147,4 +150,68 @@
   .articles-grid{
     grid-template-columns:repeat(2,1fr);
   }
+}
+
+
+/* ================================================= */
+/* ========= NEW MOBILE FIXES (ADDED BELOW) ========= */
+/* ================================================= */
+
+
+/* FIX headline overlay text overflow */
+.headline-main .overlay h1,
+.headline-main .overlay h2,
+.headline-main .overlay h3{
+  line-height:1.3;
+  margin:0;
+}
+
+.headline-small .overlay h1,
+.headline-small .overlay h2,
+.headline-small .overlay h3{
+  line-height:1.3;
+  margin:0;
+}
+
+
+/* Prevent hero image stretching */
+.headline-main img,
+.headline-small img{
+  object-fit:cover;
+}
+
+
+/* Improve article card spacing */
+.article-card h3{
+  line-height:1.35;
+}
+
+.article-card p{
+  line-height:1.4;
+}
+
+
+/* Extra mobile optimization */
+@media(max-width:600px){
+
+  .headline-main{
+    height:240px;
+  }
+
+  .headline-small{
+    height:140px;
+  }
+
+  .article-card img{
+    height:120px;
+  }
+
+  .article-card h3{
+    font-size:15px;
+  }
+
+  .article-card p{
+    font-size:12px;
+  }
+
 }
