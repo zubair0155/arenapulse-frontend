@@ -215,3 +215,58 @@
   }
 
 }
+/* ===== MOBILE FORCE FIX ===== */
+
+@media screen and (max-width: 768px) {
+
+  .headlines {
+    grid-template-columns: 1fr !important;
+  }
+
+  .headline-main {
+    height: 250px !important;
+  }
+
+  .headline-small {
+    height: 140px !important;
+  }
+
+  .headline-main .overlay {
+    padding: 14px !important;
+  }
+
+  .headline-small .overlay {
+    padding: 10px !important;
+  }
+
+  .headline-main .overlay h1,
+  .headline-main .overlay h2,
+  .headline-main .overlay h3 {
+    font-size: 18px !important;
+    line-height: 1.3 !important;
+  }
+
+  .headline-small .overlay h1,
+  .headline-small .overlay h2,
+  .headline-small .overlay h3 {
+    font-size: 14px !important;
+  }
+
+  .articles-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .article-card img {
+    height: 110px !important;
+  }
+
+  .article-card h3 {
+    font-size: 15px !important;
+  }
+
+  .article-card p {
+    font-size: 12px !important;
+  }
+
+}
