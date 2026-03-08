@@ -17,9 +17,7 @@ export default function Home() {
 
   /* FIRST AD LOAD */
   useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {}
+    reloadAds();
   }, []);
 
   /* LOAD ARTICLES FROM SUPABASE */
@@ -28,19 +26,19 @@ export default function Home() {
       try {
 
         const { data, error } = await supabase
-         .from("articles")
-         .select("*")
-         .eq("category", "news")   // 👈 THIS LINE IS IMPORTANT
-         .order("created_at", { ascending: false });
+          .from("articles")
+          .select("*")
+          .eq("category", "news")
+          .order("created_at", { ascending: false });
 
         if (error) {
           console.error("Error loading articles:", error.message);
           return;
         }
 
-        /* remove expired (if field exists) */
         const now = Date.now();
-        const filtered = data.filter(
+
+        const filtered = (data || []).filter(
           (a) => !a.expiresAt || new Date(a.expiresAt).getTime() > now
         );
 
@@ -68,12 +66,10 @@ export default function Home() {
     }, 900);
 
     return () => clearTimeout(timer);
-  }, [articles, headlines]);
+  }, [articles]);
 
-  /* visible articles */
   const visibleArticles = normals.slice(0, visibleCount);
 
-  /* MORE BUTTON */
   const showMore = () => {
     setVisibleCount((prev) => prev + 12);
   };
@@ -90,7 +86,7 @@ export default function Home() {
             className="headline-main"
             onClick={() => navigate(`/article/${headlines[0].id}`)}
           >
-            <img src={headlines[0].image} />
+            <img src={headlines[0].image || ""} alt={headlines[0].title} />
             <div className="overlay">
               <h2>{headlines[0].title}</h2>
               <p>{headlines[0].summary}</p>
@@ -106,7 +102,7 @@ export default function Home() {
               className="headline-small"
               onClick={() => navigate(`/article/${headlines[1].id}`)}
             >
-              <img src={headlines[1].image} />
+              <img src={headlines[1].image || ""} alt={headlines[1].title} />
               <div className="overlay">
                 <h3>{headlines[1].title}</h3>
               </div>
@@ -118,7 +114,7 @@ export default function Home() {
               className="headline-small"
               onClick={() => navigate(`/article/${headlines[2].id}`)}
             >
-              <img src={headlines[2].image} />
+              <img src={headlines[2].image || ""} alt={headlines[2].title} />
               <div className="overlay">
                 <h3>{headlines[2].title}</h3>
               </div>
@@ -149,7 +145,7 @@ export default function Home() {
             className="article-card"
             onClick={() => navigate(`/article/${a.id}`)}
           >
-            <img src={a.image} />
+            <img src={a.image || ""} alt={a.title} />
             <div className="text">
               <h3>{a.title}</h3>
               <p>{a.summary}</p>

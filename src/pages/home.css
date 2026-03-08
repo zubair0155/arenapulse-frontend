@@ -270,3 +270,83 @@
   }
 
 }
+/* ===== MOBILE FULL WIDTH FIX ===== */
+
+@media screen and (max-width:768px){
+
+  .home-container{
+    max-width:100%;
+    width:100%;
+    padding:12px;
+    margin:0 auto;
+  }
+
+  .headlines{
+    grid-template-columns:1fr;
+    width:100%;
+  }
+
+  .headline-main{
+    width:100%;
+    height:240px;
+  }
+
+  .headline-small{
+    width:100%;
+    height:140px;
+  }
+
+  .articles-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    width:100%;
+  }
+
+  .article-card{
+    width:100%;
+  }
+
+}
+/* ===== MOBILE ARTICLE STYLE LIKE HEADLINES ===== */
+
+@media screen and (max-width:768px){
+
+  .articles-grid{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+
+  .article-card{
+    position:relative;
+    height:160px;
+    border-radius:0;
+    overflow:hidden;
+  }
+
+  .article-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .article-card .text{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    padding:12px;
+    background:linear-gradient(to top, rgba(0,0,0,.75), transparent);
+    color:white;
+  }
+
+  .article-card h3{
+    font-size:16px;
+    margin:0;
+    color:white;
+  }
+
+  .article-card p{
+    display:none; /* hide summary like headline cards */
+  }
+
+}
