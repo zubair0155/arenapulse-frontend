@@ -251,3 +251,18 @@
 .news-article-page .article-content em{
   font-style:italic;
 }
+.news-article-page .article-content .mid-article-ad {
+  display: block;        /* force it to flow like a normal block */
+  width: 100%;           /* full width of content */
+  max-width: 100%;       /* prevent overflow */
+  min-height: 90px;      /* match AdSense height */
+  margin: 40px 0;        /* vertical spacing */
+  text-align: center;    /* center ad horizontally */
+  position: relative;
+}
+
+.news-article-page .article-content .mid-article-ad ins.adsbygoogle{
+  width:100% !important;
+  height:90px !important;
+  display:inline-block !important;
+}

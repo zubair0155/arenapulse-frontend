@@ -24,7 +24,6 @@ export default function Home() {
   useEffect(() => {
     const load = async () => {
       try {
-
         const { data, error } = await supabase
           .from("articles")
           .select("*")
@@ -37,7 +36,6 @@ export default function Home() {
         }
 
         const now = Date.now();
-
         const filtered = (data || []).filter(
           (a) => !a.expiresAt || new Date(a.expiresAt).getTime() > now
         );
@@ -52,12 +50,14 @@ export default function Home() {
     load();
   }, []);
 
-  /* SPLIT HEADLINES + NORMAL */
-  const headlines = articles
-    .filter((a) => a.position === "headline")
-    .slice(0, 3);
-
-  const normals = articles.filter((a) => a.position !== "headline");
+  /* SPLIT HEADLINES + NORMAL WITH EXTRA HEADLINES GOING DOWN */
+  const allHeadlines = articles.filter(a => a.position === "headline");
+  const headlines = allHeadlines.slice(0, 3); // top 3 for headline section
+  const remainingHeadlines = allHeadlines.slice(3); // extra headlines
+  const normals = [
+    ...articles.filter(a => a.position !== "headline"),
+    ...remainingHeadlines
+  ];
 
   /* RELOAD ADS WHEN DATA READY */
   useEffect(() => {
@@ -84,7 +84,7 @@ export default function Home() {
         {headlines[0] && (
           <div
             className="headline-main"
-            onClick={() => navigate(`/article/${headlines[0].id}`)}
+            onClick={() => navigate(`/article/${headlines[0].slug}`)}
           >
             <img src={headlines[0].image || ""} alt={headlines[0].title} />
             <div className="overlay">
@@ -100,7 +100,7 @@ export default function Home() {
           {headlines[1] && (
             <div
               className="headline-small"
-              onClick={() => navigate(`/article/${headlines[1].id}`)}
+              onClick={() => navigate(`/article/${headlines[1].slug}`)}
             >
               <img src={headlines[1].image || ""} alt={headlines[1].title} />
               <div className="overlay">
@@ -112,7 +112,7 @@ export default function Home() {
           {headlines[2] && (
             <div
               className="headline-small"
-              onClick={() => navigate(`/article/${headlines[2].id}`)}
+              onClick={() => navigate(`/article/${headlines[2].slug}`)}
             >
               <img src={headlines[2].image || ""} alt={headlines[2].title} />
               <div className="overlay">
@@ -143,7 +143,7 @@ export default function Home() {
           <div
             key={a.id}
             className="article-card"
-            onClick={() => navigate(`/article/${a.id}`)}
+            onClick={() => navigate(`/article/${a.slug}`)}
           >
             <img src={a.image || ""} alt={a.title} />
             <div className="text">

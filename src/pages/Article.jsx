@@ -6,7 +6,7 @@ import "./article.css";
 
 export default function Article() {
 
-  const { id } = useParams();
+  const { slug } = useParams();
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
   const [openShare, setOpenShare] = useState(false);
@@ -20,10 +20,10 @@ export default function Article() {
     const fetchArticle = async () => {
 
       const { data, error } = await supabase
-        .from("articles")
-        .select("id,title,summary,content,image,position,created_at")
-        .eq("id", id)
-        .single();
+         .from("articles")
+         .select("id,title,summary,content,image,position,created_at,slug")
+         .eq("slug", slug)   // ✅ query by slug
+         .single();
 
       if (error) {
         console.error(error);
@@ -37,8 +37,7 @@ export default function Article() {
 
     fetchArticle();
 
-  }, [id]);
-
+  }, [slug]); // ✅ use slug here
 
   /* -------- LOAD ADS -------- */
   useEffect(() => {
@@ -88,7 +87,6 @@ export default function Article() {
 
 
   /* -------- SHARE -------- */
-
   const share = (type) => {
 
     const text = article.title + " " + url;
@@ -105,7 +103,6 @@ export default function Article() {
     if (type === "email")
       window.open(`mailto:?subject=${article.title}&body=${text}`);
   };
-
 
   const copyLink = async () => {
     await navigator.clipboard.writeText(url);
@@ -132,7 +129,6 @@ export default function Article() {
 
       </Helmet>
 
-
       {/* TOP AFFILIATE */}
       <div className="top-affiliate-banner">
         <a href="YOUR_AFFILIATE_LINK" target="_blank" rel="noopener noreferrer">
@@ -140,15 +136,12 @@ export default function Article() {
         </a>
       </div>
 
-
       <div className="news-article-page">
 
         <div className="article-layout">
 
-
           {/* MAIN ARTICLE */}
           <div className="article-main">
-
 
             <div className="title-section">
 
@@ -162,8 +155,6 @@ export default function Article() {
               <h1 className="article-title">{article.title}</h1>
 
             </div>
-
-
 
             {/* IMAGE */}
             {article.image && (
@@ -212,10 +203,7 @@ export default function Article() {
 
             )}
 
-
-
             {/* ARTICLE CONTENT */}
-
             <div className="article-content">
 
               {paragraphs.map((para, index) => (
@@ -224,38 +212,35 @@ export default function Article() {
 
                   <p dangerouslySetInnerHTML={{ __html: para }} />
 
-                  {/* MID ARTICLE AD AFTER 7TH PARAGRAPH */}
+                  {/* MID ARTICLE AD AFTER HALF */}
+                  {index === Math.floor(paragraphs.length / 2) && (
+                    <div className="mid-article-ad">
 
-                {index === 7 && (
-                  <div className="mid-article-ad">
+                      <ins
+                        className="adsbygoogle"
+                        style={{ display: "block", width: "100%", height: "90px" }}
+                        data-ad-client="ca-pub-xxxxxxxxxxxxx"
+                        data-ad-slot="7777777777"
+                        data-ad-format="horizontal"
+                      ></ins>
 
-                    <ins
-                     className="adsbygoogle"
-                     style={{ display: "block", width: "100%", height: "90px" }}
-                     data-ad-client="ca-pub-xxxxxxxxxxxxx"
-                     data-ad-slot="7777777777"
-                     data-ad-format="horizontal"
-                    ></ins>
-
-                  </div>
-                 )}
-
+                    </div>
+                  )}
 
                   {/* LAST ARTICLE AD */}
+                  {index === paragraphs.length - 1 && (
+                    <div className="mid-article-ad">
 
-                {index === paragraphs.length - 1 && (
-                 <div className="mid-article-ad">
+                      <ins
+                        className="adsbygoogle"
+                        style={{ display: "block", width: "100%", height: "90px" }}
+                        data-ad-client="ca-pub-xxxxxxxxxxxxx"
+                        data-ad-slot="8888888888"
+                        data-ad-format="horizontal"
+                      ></ins>
 
-                   <ins
-                    className="adsbygoogle"
-                    style={{ display: "block", width: "100%", height: "90px" }}
-                    data-ad-client="ca-pub-xxxxxxxxxxxxx"
-                    data-ad-slot="8888888888"
-                    data-ad-format="horizontal"
-                   ></ins>
-
-                </div>
-              )}
+                    </div>
+                  )}
 
                 </div>
 
@@ -263,13 +248,9 @@ export default function Article() {
 
             </div>
 
-
           </div>
 
-
-
           {/* SIDEBAR AD */}
-
           <aside className="article-sidebar">
 
             <div className="ad-300x600">
@@ -284,7 +265,6 @@ export default function Article() {
             </div>
 
           </aside>
-
 
         </div>
 

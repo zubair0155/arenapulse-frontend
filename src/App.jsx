@@ -39,12 +39,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Channel" element={<Channel />} />
         <Route path="/watch/:id" element={<Watch />} />
-        <Route path="/article/:id" element={<Article />} />
+        <Route path="/article/:slug" element={<Article />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/about" element={<About />} />
         <Route path="/technology" element={<Technology />} />
-        <Route path="/tech/:id" element={<TechnologyArticle />} />  
+        <Route path="/tech/:slug" element={<TechnologyArticle />} />  
         <Route path="/privacy" element={<Privacy />} />      
       </Routes>
       <Footer />

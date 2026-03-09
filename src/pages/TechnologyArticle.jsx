@@ -6,7 +6,7 @@ import "./technology-article.css";
 
 export default function TechnologyArticle() {
 
-  const { id } = useParams();
+  const { slug } = useParams();   // changed from id → slug
 
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -23,13 +23,22 @@ export default function TechnologyArticle() {
     const loadArticle = async () => {
 
       try {
-
-        const { data, error } = await supabase
+        let { data, error } = await supabase
           .from("articles")
           .select("*")
-          .eq("id", id)
+          .eq("slug", slug)
           .single();
 
+        if (!data) {
+          const fallback = await supabase
+            .from("articles")
+            .select("*")
+            .eq("id", slug)
+            .single();
+
+             data = fallback.data;
+             error = fallback.error;
+          }
         if (error) throw error;
 
         setArticle(data);
@@ -45,7 +54,7 @@ export default function TechnologyArticle() {
 
     loadArticle();
 
-  }, [id]);
+  }, [slug]);  // changed from id → slug
 
   /* ================= ADS INIT ================= */
 
