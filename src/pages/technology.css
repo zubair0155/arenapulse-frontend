@@ -98,7 +98,7 @@
 .tech-horizontal-ad-top,
 .tech-horizontal-ad-bottom{
   width:970px;
-  height:90px;
+  height:250px;
   background:#d6d6d6;
   margin:20px auto;
   border-radius:4px;
@@ -113,7 +113,7 @@
 .tech-horizontal-ad-top iframe,
 .tech-horizontal-ad-bottom iframe{
   width:970px !important;
-  height:90px !important;
+  height:250px !important;
   display:block !important;
 }
 
@@ -286,7 +286,9 @@
   }
 
 }
+
 /* MOBILE AD FIX */
+
 @media (max-width:768px){
 
   .tech-horizontal-ad-top,
@@ -303,4 +305,71 @@
     height:auto !important;
   }
 
+}
+
+/* ===== NAV BANNER BELOW NAV ===== */
+
+.tech-nav-banner{
+  width:100%;
+  background:#d8d7d7;
+  text-align:center;
+  margin:15px 0;
+  overflow:hidden;
+}
+
+.tech-nav-banner ins.adsbygoogle{
+  display:inline-block !important;
+  width:970px !important;
+  height:150px !important;
+}
+
+/* ===== REAL MOBILE FIX FOR 970x150 ===== */
+
+@media (max-width:768px){
+
+  .tech-nav-banner{
+    padding:0 10px;
+  }
+
+  .tech-nav-banner ins.adsbygoogle{
+    width:100% !important;
+    height:auto !important;
+    max-width:100% !important;
+  }
+
+}
+/* ===== MOBILE OVERFLOW FIX FOR NAV BANNER ===== */
+@media (max-width:768px){
+
+  .tech-nav-banner{
+    width:100%;
+    max-width:100%;
+    overflow:hidden;
+    padding:0 10px;
+    box-sizing:border-box;
+  }
+
+  .tech-nav-banner ins.adsbygoogle{
+    width:100% !important;
+    max-width:100% !important;
+    height:auto !important;
+    display:block !important;
+  }
+
+}
+/* ===== FIX FEATURED HEADLINE TEXT OVERFLOW ===== */
+
+.featured-main-text,
+.featured-side-text{
+  box-sizing:border-box;
+  width:100%;
+  max-width:100%;
+  overflow:hidden;
+}
+
+.featured-main-text h2,
+.featured-main-text p,
+.featured-side-text h3{
+  overflow-wrap:break-word;
+  word-break:break-word;
 }

@@ -77,6 +77,20 @@ export default function Home() {
   return (
     <div className="home-container">
 
+      {/* ===== NAV BAR AD (NEW) ===== */}
+      <div className="nav-horizontal-ad">
+        <div style={{ textAlign: "center", fontSize: "12px", color: "#888", marginBottom: "5px" }}>
+            Advertisement
+          </div>
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block", width: "970px", height: "150px", overflow: "hidden" }}
+          data-ad-client="ca-pub-xxxxxxxxxxxxx"
+          data-ad-slot="9999999999"
+          data-full-width-responsive="true"
+        ></ins>
+      </div>
+
       {/* ---------------- HEADLINES ---------------- */}
       <div className="headlines">
 
@@ -126,12 +140,15 @@ export default function Home() {
 
       {/* TOP AD */}
       <div className="home-ad">
+        <div style={{ textAlign: "center", fontSize: "12px", color: "#888", marginBottom: "5px" }}>
+            Advertisement
+          </div>
         <ins
           className="adsbygoogle"
-          style={{ display: "block", width: "970px", height: "90px" }}
+          style={{ display: "block", width: "970px", height: "250px" }}
           data-ad-client="ca-pub-xxxxxxxxxxxxx"
           data-ad-slot="1111111111"
-          data-ad-format="horizontal"
+          data-ad-format="rectangle"
           data-full-width-responsive="true"
         ></ins>
       </div>
@@ -154,19 +171,22 @@ export default function Home() {
         ))}
 
       </div>
-
+      
       {/* BOTTOM AD */}
-      <div className="home-ad">
-        <ins
-          className="adsbygoogle"
-          style={{ display: "block", width: "970px", height: "90px" }}
-          data-ad-client="ca-pub-xxxxxxxxxxxxx"
-          data-ad-slot="2222222222"
-          data-ad-format="horizontal"
-          data-full-width-responsive="true"
-        ></ins>
-      </div>
-
+        <div className="home-ad">
+          <div style={{ textAlign: "center", fontSize: "12px", color: "#888", marginBottom: "5px" }}>
+            Advertisement
+          </div>
+          <ins
+            className="adsbygoogle"
+            style={{ display: "block", width: "970px", height: "250px" }}
+            data-ad-client="ca-pub-xxxxxxxxxxxxx"
+            data-ad-slot="2222222222"
+            data-ad-format="rectangle"
+            data-full-width-responsive="true"
+          ></ins>
+        </div>
+      
       {/* MORE BUTTON */}
       {normals.length > visibleCount && (
         <button className="more-btn" onClick={showMore}>

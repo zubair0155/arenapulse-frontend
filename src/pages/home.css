@@ -14,7 +14,7 @@ html, body {
 }
 
 .site-logo{
-  font-size:50px;
+  font-size:60px;
   font-weight:700;
   font-family:'Allura', cursive;
   letter-spacing:1px;
@@ -154,7 +154,6 @@ html, body {
   background:#d8d7d7;
   padding:12px 0;
   margin:20px 0;
-  border-radius:6px;
 }
 
 /* MORE BUTTON */
@@ -243,6 +242,55 @@ html, body {
 
   .article-card p{
     display:none;
+  }
+
+}
+/* NAV BAR HORIZONTAL AD */
+.nav-horizontal-ad {
+  width: 100%;
+  background:#d8d7d7;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.nav-horizontal-ad ins.adsbygoogle {
+  width: 970px !important;
+  height: 150px !important;
+  display: inline-block !important;
+  max-width: 100%;
+}
+/* NAV BAR HORIZONTAL AD */
+.nav-horizontal-ad {
+  width: 100%;
+  background:#d8d7d7;
+  text-align: center;
+  margin: 15px 0;
+  overflow:hidden;
+}
+
+.nav-horizontal-ad ins.adsbygoogle {
+  width: 970px !important;
+  height: 150px !important;
+  display: inline-block !important;
+  max-width: 100%;
+}
+
+/* ===== MOBILE FIX FOR NAV AD ===== */
+@media (max-width:768px){
+
+  .nav-horizontal-ad{
+    width:100%;
+    max-width:100%;
+    overflow:hidden;
+    padding:0 10px;
+    box-sizing:border-box;
+  }
+
+  .nav-horizontal-ad ins.adsbygoogle{
+    width:100% !important;
+    max-width:100% !important;
+    height:auto !important;
+    display:block !important;
   }
 
 }

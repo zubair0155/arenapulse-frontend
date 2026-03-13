@@ -22,7 +22,7 @@ export default function Article() {
       const { data, error } = await supabase
          .from("articles")
          .select("id,title,summary,content,image,position,created_at,slug")
-         .eq("slug", slug)   // ✅ query by slug
+         .eq("slug", slug)
          .single();
 
       if (error) {
@@ -37,7 +37,7 @@ export default function Article() {
 
     fetchArticle();
 
-  }, [slug]); // ✅ use slug here
+  }, [slug]);
 
   /* -------- LOAD ADS -------- */
   useEffect(() => {
@@ -58,7 +58,6 @@ export default function Article() {
 
   }, [article]);
 
-
   /* -------- CLOSE SHARE -------- */
   useEffect(() => {
 
@@ -75,16 +74,13 @@ export default function Article() {
 
   }, []);
 
-
   if (loading) return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
   if (!article) return <h2 style={{ textAlign: "center" }}>Article not found</h2>;
 
-
-  /* -------- SPLIT PARAGRAPHS -------- */
+  /* -------- SPLIT PARAGRAPHS (FIXED) -------- */
   const paragraphs = article.content
-    ? article.content.split("\n")
+    ? article.content.split("</p>")
     : [];
-
 
   /* -------- SHARE -------- */
   const share = (type) => {
@@ -108,7 +104,6 @@ export default function Article() {
     await navigator.clipboard.writeText(url);
     alert("Link copied!");
   };
-
 
   return (
     <>
@@ -212,31 +207,31 @@ export default function Article() {
 
                   <p dangerouslySetInnerHTML={{ __html: para }} />
 
-                  {/* MID ARTICLE AD AFTER HALF */}
-                  {index === Math.floor(paragraphs.length / 2) && (
+                  {/* MID ARTICLE AD */}
+                  {index === 2 && (
                     <div className="mid-article-ad">
-
+                      <span class="ad-label">Advertisement</span>
                       <ins
                         className="adsbygoogle"
-                        style={{ display: "block", width: "100%", height: "90px" }}
+                        style={{ display: "block", width: "100%", height: "250px" }}
                         data-ad-client="ca-pub-xxxxxxxxxxxxx"
                         data-ad-slot="7777777777"
-                        data-ad-format="horizontal"
+                        data-ad-format="rectangle"
                       ></ins>
 
                     </div>
                   )}
 
                   {/* LAST ARTICLE AD */}
-                  {index === paragraphs.length - 1 && (
+                  {index === paragraphs.length - 3 && (
                     <div className="mid-article-ad">
 
                       <ins
                         className="adsbygoogle"
-                        style={{ display: "block", width: "100%", height: "90px" }}
+                        style={{ display: "block", width: "100%", height: "250px" }}
                         data-ad-client="ca-pub-xxxxxxxxxxxxx"
                         data-ad-slot="8888888888"
-                        data-ad-format="horizontal"
+                        data-ad-format="rectangle"
                       ></ins>
 
                     </div>
@@ -252,9 +247,9 @@ export default function Article() {
 
           {/* SIDEBAR AD */}
           <aside className="article-sidebar">
-
+            
             <div className="ad-300x600">
-
+             
               <ins
                 className="adsbygoogle"
                 style={{ display: "block", width: "300px", height: "600px" }}

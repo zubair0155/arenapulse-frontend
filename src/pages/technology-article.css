@@ -159,47 +159,21 @@
   gap:20px;
 }
 
-.technology-article-page .ad-300x250{
+.technology-article-page .ad-300x600{
   width:300px;
-  height:250px;
-  min-height:250px;
-  max-height:250px;
-
+  height:600px;
   background:rgba(0,0,0,0.04);
   border-radius:10px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   overflow:hidden;
-}
-.technology-article-page .article-sidebar{
-  width:320px;
-  margin-left:40px;
-  position:sticky;
-  top:90px;
-  align-self:flex-start;
-}
-.technology-article-page .ad-300x250 ins{
-  width:300px;
-  height:250px;
-  display:block;
-}
-.sidebar-affiliate-box{
-  width:300px;
-  height:250px;   /* same height as Google ad */
-  display:block;
-  background:#ebebeb;
-  border-radius:8px;
-  overflow:hidden;
-  margin-top:20px;
 }
 /* Mid Article Ad Placeholder */
 .mid-article-ad {
   margin: 40px 0;
-  min-height: 120px;          /* ensures space even if ad not loaded */
-  background-color: #f1f1f1;  /* light gray */
+  min-height: 120px;          
+  background-color: #f1f1f1;  
   border: 1px solid #ddd;
   display: flex;
   align-items: center;
@@ -217,7 +191,14 @@
   color: #888;
   letter-spacing: 1px;
 }
-
+.top-affiliate-banner {
+  width: 100%;
+  text-align: center;
+  margin: 15px 0 25px 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+  background: #c4c4c4;
+}
 /* ===============================
    MOBILE
 ================================ */
@@ -228,8 +209,80 @@
     flex-direction:column;
   }
 
+  /* Hide original sidebar for mobile (desktop version) */
   .technology-article-page .article-sidebar{
     display:none;
   }
 
+}
+
+/* ================================================= */
+/* ========= ADDED FIXES (DO NOT REMOVE) ============ */
+/* ================================================= */
+
+/* make adsense responsive */
+
+.technology-article-page ins.adsbygoogle{
+  display:block !important;
+  width:100% !important;
+  text-align:center;
+}
+
+/* prevent images from pushing layout */
+
+.technology-article-page img{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+/* prevent iframe ads from overflowing */
+
+.technology-article-page iframe{
+  max-width:100% !important;
+}
+
+/* fix long words / links pushing layout */
+
+.technology-article-page .article-content p,
+.technology-article-page .article-content h1,
+.technology-article-page .article-content h2,
+.technology-article-page .article-content h3{
+  overflow-wrap:break-word;
+  word-break:break-word;
+}
+
+/* fix mid article ad like news page */
+
+.technology-article-page .article-content .mid-article-ad{
+  display:block;
+  width:100%;
+  max-width:100%;
+  min-height:90px;
+  margin:40px 0;
+  text-align:center;
+  position:relative;
+}
+
+.technology-article-page .article-content .mid-article-ad ins.adsbygoogle{
+  width:100% !important;
+  height:90px !important;
+  display:inline-block !important;
+}
+
+/* ===== MOBILE FIX: SIDE AD AS SQUARE BELOW CONTENT ===== */
+  @media(max-width:768px){
+  .technology-article-page .article-sidebar{
+    display:block;
+    position:static;      /* remove sticky */
+    width:100%;
+    margin-top:0px;
+    margin-left: auto;
+  }
+  /* Make the sidebar ad a square and centered */
+  .technology-article-page .ad-300x600{
+    width:350px;           /* square width */
+    height:350px;          /* square height */
+    margin: auto;     /* center horizontally */
+  }
 }

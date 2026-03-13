@@ -154,6 +154,7 @@
 .mid-article-ad::before {
   content: "Advertisement";
   position: absolute;
+  text-align: center;
   top: 8px;
   font-size: 12px;
   color: #888;
@@ -265,4 +266,37 @@
   width:100% !important;
   height:90px !important;
   display:inline-block !important;
+}
+
+/* ===== FINAL SIDEBAR STICKY FIX ===== */
+
+.news-article-page .article-layout{
+  align-items:flex-start;
+}
+
+.news-article-page .article-sidebar{
+  position:sticky;
+  top:120px;
+  align-self:flex-start;
+}
+
+.news-article-page .ad-300x600{
+  width:300px;
+  height:600px;
+}
+
+/* ===== MOBILE FIX: SIDE AD AS SQUARE AT BOTTOM ===== */
+@media(max-width:768px){
+  .news-article-page .article-sidebar{
+    position:static;       /* stop sticky so it flows to bottom */
+    display:block;
+    width:100%;
+    margin-top:0px;
+  }
+
+  .news-article-page .ad-300x600{
+    width:350px;           /* square width */
+    height:350px;          /* square height */
+    margin:0px auto;      /* center horizontally */
+  }
 }

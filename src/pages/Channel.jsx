@@ -5,15 +5,15 @@ import "./channels.css";
 export default function Channels() {
 const channels = [
     { name: "BBC News", id: "bbc", thumb: "https://i.ytimg.com/vi/upYh1_Z4v7A/hqdefault.jpg" },
-    { name: "CNN", id: "cnn", thumb: "https://i.ytimg.com/vi/tagc4rN6cUU/hqdefault.jpg" },
     { name: "Al Jazeera English", id: "aljazeera", url: "https://www.youtube.com/watch?v=gCNeDWCI0vo" },
-    { name: "Sky News", id: "skyn", url: "hhttps://www.youtube.com/watch?v=YDvsBbKfLPA" },
+    { name: "Fox News", id: "foxn", url: "https://www.youtube.com/watch?v=sIv6YmBeO3Q" },  
+    { name: "Sky News", id: "skyn", url: "https://www.youtube.com/watch?v=YDvsBbKfLPA" },
     { name: "France 24", id: "france24", url: "https://www.youtube.com/watch?v=Ap-UM1O9RBU" },
     { name: "DW News", id: "dw", url: "https://www.youtube.com/watch?v=LuKwFajn37U" },
-    { name: "NBC News", id: "nbc", url: "https://www.youtube.com/watch?v=XQC-jT94o0Y" },
+    { name: "NBC News", id: "nbc", url: "https://www.youtube.com/watch?v=xSaU6yFnxes" },
     { name: "TRT News", id: "guardian", url: "https://www.youtube.com/watch?v=ABfFhWzWs0s" },
     { name: "NHK News", id: "rt", url: "https://www.youtube.com/watch?v=f0lYkdA-Gtw" },
-    { name: "Euro news", id: "cna", url: "https://www.youtube.com/watch?v=pykpO5kQJ98" },
+    { name: "Euro News", id: "cna", url: "https://www.youtube.com/watch?v=pykpO5kQJ98" },
     { name: "Bloomberg", id: "bloomberg", url: "https://www.youtube.com/watch?v=iEpJwprxDdk" },
     { name: "Sport", id: "abc", url: "https://www.youtube.com/watch?v=SK2aBwz97pE" },
   ];

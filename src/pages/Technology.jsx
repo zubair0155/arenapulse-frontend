@@ -70,6 +70,26 @@ export default function Technology() {
 
   return (
     <div className="technology-page">
+
+      {/* ===== NEW NAV BANNER 970x150 ===== */}
+      <div className="tech-nav-banner">
+        <div style={{ textAlign: "center", fontSize: "12px", color: "#888", marginBottom: "5px" }}>
+            Advertisement
+          </div>
+        <ins
+          className="adsbygoogle"
+          style={{
+            display: "block",
+            width: "970px",
+            height: "150px",
+            margin: "0 auto"
+          }}
+          data-ad-client="ca-pub-xxxxxxxxxxxxx"
+          data-ad-slot="9999999999"
+          data-full-width-responsive="true">
+        </ins>
+      </div>
+
       {/* ===== HEADLINES ===== */}
       <div className="tech-featured">
 
@@ -121,12 +141,10 @@ export default function Technology() {
           style={{
             display: "block",
             width: "970px",
-            height: "90px",
-            overflow: "hidden"
+            height: "250px",
           }}
           data-ad-client="ca-pub-xxxxxxxxxxxxx"
           data-ad-slot="1111111111"
-          data-ad-format="horizontal"
           data-full-width-responsive="true">
         </ins>
       </div>
@@ -168,20 +186,22 @@ export default function Technology() {
               </div>
             </Link>
 
-            {/* AD AFTER 10th NORMAL ARTICLE */}
-            {index === 9 && (
+            {/* AD AFTER 8th NORMAL ARTICLE */}
+            {index === 7 && (
               <div className="tech-horizontal-ad-bottom">
+                <div style={{ textAlign: "center", fontSize: "12px", color: "#888", marginBottom: "5px",}}>
+                  Advertisement
+                </div>
                 <ins
                   className="adsbygoogle"
                   style={{
                     display: "block",
                     width: "970px",
-                    height: "90px",
-                    overflow: "hidden"
+                    height: "250px",
                   }}
                   data-ad-client="ca-pub-xxxxxxxxxxxxx"
                   data-ad-slot="2222222222"
-                  data-ad-format="horizontal"
+                  data-ad-format="rectangle"
                   data-full-width-responsive="true">
                 </ins>
               </div>

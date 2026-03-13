@@ -131,7 +131,7 @@ export default function TechnologyArticle() {
   /* ================= ARTICLE CONTENT ================= */
 
   const paragraphs = article.content
-    ? article.content.split("\n")
+    ? article.content.split("</p>")
     : [];
 
   return (
@@ -151,7 +151,12 @@ export default function TechnologyArticle() {
         <meta property="og:type" content="article"/>
 
       </Helmet>
-
+        {/* TOP AFFILIATE */}
+           <div className="top-affiliate-banner">
+             <a href="YOUR_AFFILIATE_LINK" target="_blank" rel="noopener noreferrer">
+               <img src="YOUR_BANNER_IMAGE_URL" alt="Affiliate Banner" />
+             </a>
+         </div>
       <div className="technology-article-page">
 
         <div className="article-layout">
@@ -231,36 +236,36 @@ export default function TechnologyArticle() {
                   />
 
                   {/* MID ARTICLE AD */}
-                  {index === 7 && (
+                  {index === 0 && (
                     <div className="mid-article-ad">
                       <ins
                         className="adsbygoogle"
                         style={{
                           display:"block",
                           width:"100%",
-                          height:"90px"
+                          height:"250px"
                         }}
                         data-ad-client="ca-pub-xxxxxxxxxxxxx"
                         data-ad-slot="3333333333"
-                        data-ad-format="horizontal"
+                        data-ad-format="rectangle"
                         data-full-width-responsive="true"
                       />
                     </div>
                   )}
 
                   {/* LAST ARTICLE AD */}
-                  {index === paragraphs.length-1 && (
+                  {index === paragraphs.length-3 && (
                     <div className="mid-article-ad">
                       <ins
                         className="adsbygoogle"
                         style={{
                           display:"block",
                           width:"100%",
-                          height:"90px"
+                          height:"250px"
                         }}
                         data-ad-client="ca-pub-xxxxxxxxxxxxx"
                         data-ad-slot="4444444444"
-                        data-ad-format="horizontal"
+                        data-ad-format="rectangle"
                         data-full-width-responsive="true"
                       />
                     </div>
@@ -272,34 +277,22 @@ export default function TechnologyArticle() {
             </div>
 
           </div>
+              {/* SIDEBAR AD */}
+          <aside className="article-sidebar">
 
-          {/* ========= SIDEBAR ========= */}
+            <div className="ad-300x600">
 
-         <aside className="article-sidebar">
-            <div className="ad-square-stack">
-
-              <div className="ad-300x250">
-                <ins className="adsbygoogle"
-                  style={{ display: "block", width: "300px", height: "250px" }}
-                  data-ad-client="ca-pub-xxxxxxxxxxxxx"
-                  data-ad-slot="1111111111"
-                  data-ad-format="rectangle"
-                  data-full-width-responsive="false">
-                </ins>
-              </div>
-
-              <div className="sidebar-affiliate-box">
-                 <a href="YOUR_AFFILIATE_LINK" target="_blank" rel="noopener noreferrer">
-                   <img
-                     src="YOUR_AFFILIATE_IMAGE_URL"
-                     alt="affiliate banner"
-                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                   />
-                 </a>
-               </div>
+              <ins
+                className="adsbygoogle"
+                style={{ display: "block", width: "300px", height: "600px" }}
+                data-ad-client="ca-pub-xxxxxxxxxxxxx"
+                data-ad-slot="2222222222"
+              ></ins>
 
             </div>
+
           </aside>
+
         </div>
 
       </div>
