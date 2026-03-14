@@ -122,6 +122,38 @@ export default function Article() {
         <meta property="og:url" content={url} />
         <meta property="og:type" content="article" />
 
+        <link rel="canonical" href={url} />
+
+     <script type="application/ld+json">
+        {`
+        {
+          "@context": "https://schema.org",
+          "@type": "NewsArticle",
+          "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "${url}"
+        },
+          "headline": "${article.title}",
+          "image": ["${article.image}"],
+          "datePublished": "${article.created_at}",
+          "dateModified": "${article.created_at}",
+          "author": {
+          "@type": "Organization",
+          "name": "ArenaPulse"
+          },
+          "publisher": {
+          "@type": "Organization",
+          "name": "ArenaPulse",
+          "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.arenapulse.site/logo.png"
+           }
+          },
+          "description": "${article.summary}"
+          }
+          `}
+     </script>
+
       </Helmet>
 
       {/* TOP AFFILIATE */}
@@ -210,7 +242,7 @@ export default function Article() {
                   {/* MID ARTICLE AD */}
                   {index === 2 && (
                     <div className="mid-article-ad">
-                      <span class="ad-label">Advertisement</span>
+          
                       <ins
                         className="adsbygoogle"
                         style={{ display: "block", width: "100%", height: "250px" }}

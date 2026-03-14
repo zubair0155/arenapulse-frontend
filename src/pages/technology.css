@@ -357,6 +357,20 @@
   }
 
 }
+/* ===== MOBILE HEIGHT FIX FOR NAV AD ===== */
+@media (max-width:768px){
+
+  .tech-nav-banner{
+    padding:6px 0;        /* reduce extra vertical space */
+    line-height:0;        /* remove hidden spacing */
+  }
+
+  .tech-nav-banner ins.adsbygoogle{
+    height:100px !important;  /* typical mobile banner height */
+    min-height:0 !important;
+  }
+
+}
 /* ===== FIX FEATURED HEADLINE TEXT OVERFLOW ===== */
 
 .featured-main-text,

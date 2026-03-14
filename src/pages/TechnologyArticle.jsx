@@ -150,6 +150,37 @@ export default function TechnologyArticle() {
         <meta property="og:url" content={url}/>
         <meta property="og:type" content="article"/>
 
+        <link rel="canonical" href={url} />
+    <script type="application/ld+json">
+        {`
+        {
+         "@context": "https://schema.org",
+         "@type": "NewsArticle",
+         "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "${url}"
+        },
+         "headline": "${article.title}",
+         "image": ["${article.image}"],
+         "datePublished": "${article.created_at}",
+         "dateModified": "${article.created_at}",
+         "author": {
+         "@type": "Organization",
+         "name": "ArenaPulse"
+        },
+         "publisher": {
+         "@type": "Organization",
+         "name": "ArenaPulse",
+         "logo": {
+         "@type": "ImageObject",
+         "url": "https://www.arenapulse.site/logo.png"
+        }
+        },
+        "description": "${article.summary || article.title}"
+        }
+      `}
+    </script>
+
       </Helmet>
         {/* TOP AFFILIATE */}
            <div className="top-affiliate-banner">

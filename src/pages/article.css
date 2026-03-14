@@ -78,14 +78,14 @@
   width:100%;
   max-height:450px;
   object-fit:cover;
-  border-radius:10px;
+  border-radius:8px;
   margin-bottom:20px;
 }
 
 .news-article-page .share-corner{
   position:absolute;
   bottom:-10px;
-  right:12px;
+  right:8px;
 }
 
 .news-article-page .share-btn{

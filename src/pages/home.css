@@ -291,6 +291,20 @@ html, body {
     max-width:100% !important;
     height:auto !important;
     display:block !important;
+
+  }
+}
+/* ===== MOBILE HEIGHT FIX FOR NAV AD ===== */
+@media (max-width:768px){
+
+  .nav-horizontal-ad{
+    padding:6px 0;        /* reduce extra vertical space */
+    line-height:0;        /* remove hidden spacing */
+  }
+
+  .nav-horizontal-ad ins.adsbygoogle{
+    height:100px !important;  /* typical mobile banner height */
+    min-height:0 !important;
   }
 
 }
