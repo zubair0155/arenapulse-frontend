@@ -182,12 +182,7 @@ export default function TechnologyArticle() {
     </script>
 
       </Helmet>
-        {/* TOP AFFILIATE */}
-           <div className="top-affiliate-banner">
-             <a href="YOUR_AFFILIATE_LINK" target="_blank" rel="noopener noreferrer">
-               <img src="YOUR_BANNER_IMAGE_URL" alt="Affiliate Banner" />
-             </a>
-         </div>
+        
       <div className="technology-article-page">
 
         <div className="article-layout">
