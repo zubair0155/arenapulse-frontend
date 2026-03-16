@@ -1,5 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { Routes, Route, Link } from "react-router-dom";
+import { Suspense, lazy } from "react";
+
+/* ORIGINAL IMPORTS (kept as requested) */
 import AdminDashboard from "./pages/AdminDashboard";
 import Admin from "./pages/Admin";
 import Channel from "./pages/Channel";
@@ -12,19 +15,45 @@ import TechnologyArticle from "./pages/TechnologyArticle";
 import Footer from "./components/Footer";
 import Privacy from "./pages/Privacy";
 
+/* ✅ PERFORMANCE IMPROVEMENT ADDED
+   Lazy loading for better initial load speed
+*/
+const LazyAdminDashboard = lazy(() => import("./pages/AdminDashboard"));
+const LazyAdmin = lazy(() => import("./pages/Admin"));
+const LazyChannel = lazy(() => import("./pages/Channel"));
+const LazyHome = lazy(() => import("./pages/Home"));
+const LazyWatch = lazy(() => import("./pages/Watch"));
+const LazyArticle = lazy(() => import("./pages/Article"));
+const LazyAbout = lazy(() => import("./pages/About"));
+const LazyTechnology = lazy(() => import("./pages/Technology"));
+const LazyTechnologyArticle = lazy(() => import("./pages/TechnologyArticle"));
+const LazyPrivacy = lazy(() => import("./pages/Privacy"));
+
 function App() {
   return (
     <div className="app">
 
+      {/* SEO META */}
       <Helmet>
         <title>ArenaPulse – Breaking News & Live Sports</title>
         <meta
           name="description"
           content="ArenaPulse brings breaking world news, trending stories, and live sports channels in one place."
         />
+
+        {/* ✅ SEO IMPROVEMENT ADDED */}
+        <link rel="canonical" href="https://arenapulse.com/" />
+
+        {/* ✅ SOCIAL SEO */}
+        <meta property="og:site_name" content="ArenaPulse" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
-      <h1 className="site-logo">ArenaPulse</h1>
+      {/* LOGO */}
+      <h1 className="site-logo">
+        {/* ✅ SEO + UX improvement */}
+        <Link to="/">ArenaPulse</Link>
+      </h1>
 
       {/* NAVIGATION */}
       <nav className="nav">
@@ -34,19 +63,25 @@ function App() {
         <Link to="/about">About</Link>
       </nav>
 
-      {/* ROUTES */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Channel" element={<Channel />} />
-        <Route path="/watch/:id" element={<Watch />} />
-        <Route path="/article/:slug" element={<Article />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/admin-dashboard" element={<AdminDashboard />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/technology" element={<Technology />} />
-        <Route path="/tech/:slug" element={<TechnologyArticle />} />  
-        <Route path="/privacy" element={<Privacy />} />      
-      </Routes>
+      {/* ✅ PERFORMANCE IMPROVEMENT ADDED */}
+      <Suspense fallback={<div className="loading">Loading...</div>}>
+
+        {/* ROUTES */}
+        <Routes>
+          <Route path="/" element={<LazyHome />} />
+          <Route path="/Channel" element={<LazyChannel />} />
+          <Route path="/watch/:id" element={<LazyWatch />} />
+          <Route path="/article/:slug" element={<LazyArticle />} />
+          <Route path="/admin" element={<LazyAdmin />} />
+          <Route path="/admin-dashboard" element={<LazyAdminDashboard />} />
+          <Route path="/about" element={<LazyAbout />} />
+          <Route path="/technology" element={<LazyTechnology />} />
+          <Route path="/tech/:slug" element={<LazyTechnologyArticle />} />
+          <Route path="/privacy" element={<LazyPrivacy />} />
+        </Routes>
+
+      </Suspense>
+
       <Footer />
     </div>
   );

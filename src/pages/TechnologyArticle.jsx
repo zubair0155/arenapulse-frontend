@@ -6,7 +6,7 @@ import "./technology-article.css";
 
 export default function TechnologyArticle() {
 
-  const { slug } = useParams();   // changed from id → slug
+  const { slug } = useParams();
 
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -36,9 +36,10 @@ export default function TechnologyArticle() {
             .eq("id", slug)
             .single();
 
-             data = fallback.data;
-             error = fallback.error;
-          }
+          data = fallback.data;
+          error = fallback.error;
+        }
+
         if (error) throw error;
 
         setArticle(data);
@@ -47,14 +48,14 @@ export default function TechnologyArticle() {
       } catch (err) {
 
         console.error("Article Load Error:", err);
-
         setLoading(false);
+
       }
     };
 
     loadArticle();
 
-  }, [slug]);  // changed from id → slug
+  }, [slug]);
 
   /* ================= ADS INIT ================= */
 
@@ -123,9 +124,14 @@ export default function TechnologyArticle() {
 
   };
 
+  /* ✅ COPY LINK FALLBACK IMPROVEMENT ADDED */
   const copyLink = async () => {
-    await navigator.clipboard.writeText(url);
-    alert("Link copied!");
+    try {
+      await navigator.clipboard.writeText(url);
+      alert("Link copied!");
+    } catch {
+      prompt("Copy this link:", url);
+    }
   };
 
   /* ================= ARTICLE CONTENT ================= */
@@ -140,7 +146,8 @@ export default function TechnologyArticle() {
 
         <title>{article.title} | ArenaPulse</title>
 
-        <meta name="description"
+        <meta
+          name="description"
           content={article.summary || article.title}
         />
 
@@ -150,44 +157,48 @@ export default function TechnologyArticle() {
         <meta property="og:url" content={url}/>
         <meta property="og:type" content="article"/>
 
+        {/* ✅ TWITTER META ADDED */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={article.title} />
+        <meta name="twitter:description" content={article.summary} />
+        <meta name="twitter:image" content={article.image} />
+
         <link rel="canonical" href={url} />
-    <script type="application/ld+json">
-        {`
-        {
-         "@context": "https://schema.org",
-         "@type": "NewsArticle",
-         "mainEntityOfPage": {
-         "@type": "WebPage",
-         "@id": "${url}"
-        },
-         "headline": "${article.title}",
-         "image": ["${article.image}"],
-         "datePublished": "${article.created_at}",
-         "dateModified": "${article.created_at}",
-         "author": {
-         "@type": "Organization",
-         "name": "ArenaPulse"
-        },
-         "publisher": {
-         "@type": "Organization",
-         "name": "ArenaPulse",
-         "logo": {
-         "@type": "ImageObject",
-         "url": "https://www.arenapulse.site/logo.png"
-        }
-        },
-        "description": "${article.summary || article.title}"
-        }
-      `}
-    </script>
+
+        {/* ✅ SAFER JSON-LD STRUCTURED DATA */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": url
+            },
+            "headline": article.title,
+            "image": [article.image],
+            "datePublished": article.created_at,
+            "dateModified": article.created_at,
+            "author": {
+              "@type": "Organization",
+              "name": "ArenaPulse"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "ArenaPulse",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://arenapulse.com/logo.png"
+              }
+            },
+            "description": article.summary || article.title
+          })}
+        </script>
 
       </Helmet>
-        
+
       <div className="technology-article-page">
 
         <div className="article-layout">
-
-          {/* ========= MAIN ARTICLE ========= */}
 
           <div className="article-main">
 
@@ -216,6 +227,8 @@ export default function TechnologyArticle() {
                   className="article-image"
                   alt={article.title}
                   loading="lazy"
+                  decoding="async"      /* ✅ PERFORMANCE IMPROVEMENT */
+                  fetchpriority="high"  /* ✅ LCP IMPROVEMENT */
                 />
 
                 <div className="share-corner" ref={shareRef}>
@@ -261,7 +274,6 @@ export default function TechnologyArticle() {
                     dangerouslySetInnerHTML={{__html: para}}
                   />
 
-                  {/* MID ARTICLE AD */}
                   {index === 0 && (
                     <div className="mid-article-ad">
                       <ins
@@ -279,7 +291,6 @@ export default function TechnologyArticle() {
                     </div>
                   )}
 
-                  {/* LAST ARTICLE AD */}
                   {index === paragraphs.length-3 && (
                     <div className="mid-article-ad">
                       <ins
@@ -303,7 +314,8 @@ export default function TechnologyArticle() {
             </div>
 
           </div>
-              {/* SIDEBAR AD */}
+
+          {/* SIDEBAR AD */}
           <aside className="article-sidebar">
 
             <div className="ad-300x600">

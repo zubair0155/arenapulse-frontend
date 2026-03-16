@@ -294,17 +294,21 @@ html, body {
 
   }
 }
-/* ===== MOBILE HEIGHT FIX FOR NAV AD ===== */
-@media (max-width:768px){
+/* ===== MOBILE FIX NAV AD ===== */
+@media (max-width:768px) {
 
-  .nav-horizontal-ad{
-    padding:6px 0;        /* reduce extra vertical space */
-    line-height:0;        /* remove hidden spacing */
+  .nav-horizontal-ad {
+    width:100%;
+    max-width:100%;
+    padding:6px 0;
+    overflow:hidden;
+    box-sizing:border-box;
   }
 
-  .nav-horizontal-ad ins.adsbygoogle{
-    height:100px !important;  /* typical mobile banner height */
-    min-height:0 !important;
+  .nav-horizontal-ad ins.adsbygoogle {
+    width:100% !important;
+    max-width:100% !important;
+    height:100px !important;  /* fixed mobile height */
+    display:block !important;
   }
-
 }

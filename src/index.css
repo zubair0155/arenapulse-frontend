@@ -55,7 +55,7 @@ body {
 
 h1 {
   text-align: center;
-  color: #0f7979;
+  color: #166161;
 }
 
 .nav {
@@ -163,4 +163,11 @@ h1 {
 .channel-card p {
   color: gray;
   font-size: 14px;
+}
+.site-logo a {
+  color: #116969;   /* your requested color */
+}
+
+.site-logo a:hover {
+  color: #539292; /* optional: darker shade on hover */
 }
