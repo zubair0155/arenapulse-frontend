@@ -14,6 +14,7 @@ import Technology from "./pages/Technology";
 import TechnologyArticle from "./pages/TechnologyArticle";
 import Footer from "./components/Footer";
 import Privacy from "./pages/Privacy";
+import Contact from "./pages/Contact";
 
 /* ✅ PERFORMANCE IMPROVEMENT ADDED
    Lazy loading for better initial load speed
@@ -76,6 +77,7 @@ function App() {
           <Route path="/admin-dashboard" element={<LazyAdminDashboard />} />
           <Route path="/about" element={<LazyAbout />} />
           <Route path="/technology" element={<LazyTechnology />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/tech/:slug" element={<LazyTechnologyArticle />} />
           <Route path="/privacy" element={<LazyPrivacy />} />
         </Routes>

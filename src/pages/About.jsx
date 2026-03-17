@@ -53,7 +53,7 @@ export default function About() {
             yasir.k000777@gmail.com
           </a>
         </p>
-        <p>Phone: +123-456-7890</p>
+        <p>Phone: +923355561247</p>
 
         <p style={{ marginTop: "20px", fontWeight: "bold" }}>
           ArenaPulse – Stay Ahead. Stay Informed.
