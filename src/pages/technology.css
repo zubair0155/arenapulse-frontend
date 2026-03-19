@@ -1,5 +1,4 @@
 /* PAGE */
-
 .technology-page{
   max-width:1100px;
   margin:auto;
@@ -53,8 +52,11 @@
   left:0;
   width:100%;
   padding:15px;
-  background:linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0));
+  background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);
   color:#fff;
+
+  box-sizing:border-box;
+  overflow:hidden;
 }
 
 .featured-main-text h2{
@@ -90,10 +92,11 @@
   display:block;
   font-size:12px;
   color:#888;
-  letter-spacing:0.5px;
   margin-bottom:8px;
   text-transform:uppercase;
 }
+
+/* BIG ADS */
 
 .tech-horizontal-ad-top,
 .tech-horizontal-ad-bottom{
@@ -101,8 +104,6 @@
   height:250px;
   background:#d6d6d6;
   margin:20px auto;
-  border-radius:4px;
-  display:flex;
   align-items:center;
   justify-content:center;
   overflow:hidden;
@@ -117,7 +118,7 @@
   display:block !important;
 }
 
-/* ===== TECH ARTICLE LIST ===== */
+/* ===== TECH LIST ===== */
 
 .tech-list{
   margin-top:30px;
@@ -204,64 +205,7 @@
   border-radius:5px;
 }
 
-/* ===== ARTICLE PAGE ===== */
-
-.tech-article-page{
-  display:flex;
-  gap:30px;
-  max-width:1100px;
-  margin:auto;
-}
-
-.tech-article-main{
-  flex:2;
-}
-
-.tech-ads{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-}
-
-.square-ad{
-  width:300px;
-  height:250px;
-  background:#ebebeb;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-/* ===== NAV / SHARE ===== */
-
-.title-row{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.small-back{
-  font-size:18px;
-  border:none;
-  background:none;
-  cursor:pointer;
-}
-
-.share-row{
-  display:flex;
-  justify-content:flex-end;
-  margin:10px 0;
-}
-
-/* ===== PAGINATION ===== */
-
-.pagination{
-  margin:30px 0;
-  text-align:center;
-}
-
-/* ===== MOBILE ===== */
+/* ===== RESPONSIVE ===== */
 
 @media (max-width:900px){
 
@@ -287,27 +231,7 @@
 
 }
 
-/* MOBILE AD FIX */
-
-@media (max-width:768px){
-
-  .tech-horizontal-ad-top,
-  .tech-horizontal-ad-bottom{
-    width:100%;
-    height:auto;
-  }
-
-  .tech-horizontal-ad-top ins,
-  .tech-horizontal-ad-bottom ins,
-  .tech-horizontal-ad-top iframe,
-  .tech-horizontal-ad-bottom iframe{
-    width:100% !important;
-    height:auto !important;
-  }
-
-}
-
-/* ===== NAV BANNER BELOW NAV ===== */
+/* ===== NAV BANNER ===== */
 
 .tech-nav-banner{
   width:100%;
@@ -323,67 +247,55 @@
   height:150px !important;
 }
 
-/* ===== REAL MOBILE FIX FOR 970x150 ===== */
+/* ===== FINAL MOBILE FIX (MATCH HOME PAGE) ===== */
 
 @media (max-width:768px){
 
-  .tech-nav-banner{
-    padding:0 10px;
-  }
-
-  .tech-nav-banner ins.adsbygoogle{
-    width:100% !important;
-    height:auto !important;
-    max-width:100% !important;
-  }
-
-}
-/* ===== MOBILE OVERFLOW FIX FOR NAV BANNER ===== */
-@media (max-width:768px){
-
+  /* NAV AD (TOP) */
   .tech-nav-banner{
     width:100%;
     max-width:100%;
+    padding:6px 0;
     overflow:hidden;
-    padding:0 10px;
     box-sizing:border-box;
   }
 
   .tech-nav-banner ins.adsbygoogle{
     width:100% !important;
     max-width:100% !important;
-    height:auto !important;
+    height:auto !important;   /* ✅ IMPORTANT */
     display:block !important;
   }
 
-}
-/* ===== MOBILE HEIGHT FIX FOR NAV AD ===== */
-@media (max-width:768px){
-
-  .tech-nav-banner{
-    padding:6px 0;        /* reduce extra vertical space */
-    line-height:0;        /* remove hidden spacing */
+  /* MAIN ADS */
+  .tech-horizontal-ad{
+    width:100%;
+    max-width:100%;
+    padding:6px 0;
+    overflow:hidden;
+    box-sizing:border-box;
   }
 
-  .tech-nav-banner ins.adsbygoogle{
-    height:100px !important;  /* typical mobile banner height */
-    min-height:0 !important;
+  .tech-horizontal-ad ins.adsbygoogle{
+    width:100% !important;
+    max-width:100% !important;
+    height:auto !important;   /* ✅ IMPORTANT */
+    display:block !important;
   }
 
-}
-/* ===== FIX FEATURED HEADLINE TEXT OVERFLOW ===== */
+  /* BIG ADS */
+  .tech-horizontal-ad-top,
+  .tech-horizontal-ad-bottom{
+    width:100%;
+    height:auto;
+  }
 
-.featured-main-text,
-.featured-side-text{
-  box-sizing:border-box;
-  width:100%;
-  max-width:100%;
-  overflow:hidden;
-}
+  .tech-horizontal-ad-top ins,
+  .tech-horizontal-ad-bottom ins,
+  .tech-horizontal-ad-top iframe,
+  .tech-horizontal-ad-bottom iframe{
+    width:100% !important;
+    height:auto !important;   /* ✅ IMPORTANT */
+  }
 
-.featured-main-text h2,
-.featured-main-text p,
-.featured-side-text h3{
-  overflow-wrap:break-word;
-  word-break:break-word;
 }

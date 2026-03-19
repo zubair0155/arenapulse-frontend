@@ -169,11 +169,15 @@ export default function Technology() {
 
       {/* ===== HORIZONTAL AD ===== */}
       <div className="tech-horizontal-ad-top">
+        <div style={{ textAlign: "center", fontSize: "12px", color: "#888", marginBottom: "5px" }}>
+           Advertisement
+        </div>
         <ins
           className="adsbygoogle"
-          style={{ display: "block", width: "970px", height: "250px" }}
+          style={{ display: "block", width: "970px", height: "250px", margin: "0 auto" }}
           data-ad-client="ca-pub-xxxxxxxxxxxxx"
           data-ad-slot="1111111111"
+          data-ad-format="rectangle"
           data-full-width-responsive="true">
         </ins>
       </div>

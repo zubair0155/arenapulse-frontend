@@ -43,7 +43,7 @@ function App() {
         />
 
         {/* ✅ SEO IMPROVEMENT ADDED */}
-        <link rel="canonical" href="https://arenapulse.com/" />
+        <link rel="canonical" href="https://arenapulse.site/" />
 
         {/* ✅ SOCIAL SEO */}
         <meta property="og:site_name" content="ArenaPulse" />
