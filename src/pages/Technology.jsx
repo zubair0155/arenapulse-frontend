@@ -111,7 +111,7 @@ export default function Technology() {
         </div>
         <ins
           className="adsbygoogle"
-          style={{ display: "block", width: "970px", height: "150px", margin: "0 auto" }}
+          style={{ display: "block", width: "970px", height: "170px", overflow: "hidden" }}
           data-ad-client="ca-pub-xxxxxxxxxxxxx"
           data-ad-slot="9999999999"
           data-full-width-responsive="true">
@@ -174,7 +174,7 @@ export default function Technology() {
         </div>
         <ins
           className="adsbygoogle"
-          style={{ display: "block", width: "970px", height: "250px", margin: "0 auto" }}
+          style={{ display: "block", width: "970px", height: "250px" }}
           data-ad-client="ca-pub-xxxxxxxxxxxxx"
           data-ad-slot="1111111111"
           data-ad-format="rectangle"

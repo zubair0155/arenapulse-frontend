@@ -113,7 +113,7 @@ export default function Home() {
         </div>
         <ins
           className="adsbygoogle"
-          style={{ display: "block", width: "970px", height: "150px", overflow: "hidden" }}
+          style={{ display: "block", width: "970px", height: "170px", overflow: "hidden" }}
           data-ad-client="ca-pub-xxxxxxxxxxxxx"
           data-ad-slot="9999999999"
           data-full-width-responsive="true"

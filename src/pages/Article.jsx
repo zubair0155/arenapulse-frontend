@@ -243,7 +243,7 @@ export default function Article() {
 
                   <p dangerouslySetInnerHTML={{ __html: para }} />
 
-                  {index === 2 && (
+                  {index === 0 && (
                     <div className="mid-article-ad">
           
                       <ins
@@ -257,7 +257,7 @@ export default function Article() {
                     </div>
                   )}
 
-                  {index === paragraphs.length - 3 && (
+                  {index === paragraphs.length - 4 && (
                     <div className="mid-article-ad">
 
                       <ins
