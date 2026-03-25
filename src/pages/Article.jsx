@@ -14,11 +14,8 @@ export default function Article() {
 
   const url = window.location.href;
 
-  /* -------- LOAD ARTICLE -------- */
   useEffect(() => {
-
     const fetchArticle = async () => {
-
       const { data, error } = await supabase
          .from("articles")
          .select("id,title,summary,content,image,position,created_at,slug")
@@ -36,31 +33,23 @@ export default function Article() {
     };
 
     fetchArticle();
-
   }, [slug]);
 
-  /* -------- LOAD ADS -------- */
   useEffect(() => {
-
     if (!article) return;
 
     const timer = setTimeout(() => {
-
       try {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
         (window.adsbygoogle = window.adsbygoogle || []).push({});
         (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch {}
-
     }, 800);
 
     return () => clearTimeout(timer);
-
   }, [article]);
 
-  /* -------- CLOSE SHARE -------- */
   useEffect(() => {
-
     function handleClickOutside(e) {
       if (shareRef.current && !shareRef.current.contains(e.target)) {
         setOpenShare(false);
@@ -68,23 +57,18 @@ export default function Article() {
     }
 
     document.addEventListener("mousedown", handleClickOutside);
-
     return () =>
       document.removeEventListener("mousedown", handleClickOutside);
-
   }, []);
 
   if (loading) return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
   if (!article) return <h2 style={{ textAlign: "center" }}>Article not found</h2>;
 
-  /* -------- SPLIT PARAGRAPHS -------- */
   const paragraphs = article.content
     ? article.content.split("</p>")
     : [];
 
-  /* -------- SHARE -------- */
   const share = (type) => {
-
     const text = article.title + " " + url;
 
     if (type === "facebook")
@@ -100,7 +84,6 @@ export default function Article() {
       window.open(`mailto:?subject=${article.title}&body=${text}`);
   };
 
-  /* ✅ SAFE COPY LINK IMPROVEMENT ADDED */
   const copyLink = async () => {
     try {
       await navigator.clipboard.writeText(url);
@@ -113,7 +96,6 @@ export default function Article() {
   return (
     <>
       <Helmet>
-
         <title>{article.title} | ArenaPulse</title>
 
         <meta
@@ -127,7 +109,9 @@ export default function Article() {
         <meta property="og:url" content={url} />
         <meta property="og:type" content="article" />
 
-        {/* ✅ TWITTER SEO ADDED */}
+        <meta property="article:published_time" content={article.created_at} />
+        <meta property="article:author" content="ArenaPulse" />
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={article.title} />
         <meta name="twitter:description" content={article.summary} />
@@ -135,7 +119,6 @@ export default function Article() {
 
         <link rel="canonical" href={url} />
 
-        {/* ✅ SAFER JSON-LD IMPLEMENTATION */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -157,7 +140,7 @@ export default function Article() {
               "name": "ArenaPulse",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://arenapulse.com/logo.png"
+                "url": "https://arenapulse.site/logo.png"
               }
             },
             "description": article.summary
@@ -166,14 +149,13 @@ export default function Article() {
 
       </Helmet>
 
-      <div className="news-article-page">
+      <article className="news-article-page">
 
         <div className="article-layout">
 
           <div className="article-main">
 
             <div className="title-section">
-
               <button
                 className="back-btn"
                 onClick={() => window.history.back()}
@@ -182,27 +164,23 @@ export default function Article() {
               </button>
 
               <h1 className="article-title">{article.title}</h1>
-
             </div>
 
-            {/* IMAGE */}
             {article.image && (
-
               <div className="image-wrapper">
-
                 <img
                   src={article.image}
                   className="article-image"
                   alt={article.title}
-                  loading="lazy"         /* ✅ PERFORMANCE IMPROVEMENT */
-                  decoding="async"       /* ✅ PERFORMANCE IMPROVEMENT */
-                  fetchpriority="high"   /* ✅ LCP IMPROVEMENT */
+                  loading="lazy"
+                  decoding="async"
+                  fetchpriority="high"
                 />
 
                 <div className="share-corner" ref={shareRef}>
-
                   <button
                     className="share-btn"
+                    aria-label="Share article"
                     onClick={(e) => {
                       e.stopPropagation();
                       setOpenShare(!openShare);
@@ -212,9 +190,7 @@ export default function Article() {
                   </button>
 
                   {openShare && (
-
-                    <div className="share-dropdown">
-
+                    <div className="share-dropdown" role="menu">
                       <div onClick={() => share("facebook")}>Facebook</div>
                       <div onClick={() => share("twitter")}>Twitter</div>
                       <div onClick={() => share("whatsapp")}>WhatsApp</div>
@@ -223,29 +199,19 @@ export default function Article() {
                       <hr />
 
                       <div onClick={copyLink}>Copy link</div>
-
                     </div>
-
                   )}
-
                 </div>
-
               </div>
-
             )}
 
-            {/* ARTICLE CONTENT */}
             <div className="article-content">
-
               {paragraphs.map((para, index) => (
-
                 <div key={index}>
-
                   <p dangerouslySetInnerHTML={{ __html: para }} />
 
                   {index === 0 && (
                     <div className="mid-article-ad">
-          
                       <ins
                         className="adsbygoogle"
                         style={{ display: "block", width: "100%", height: "250px" }}
@@ -253,13 +219,11 @@ export default function Article() {
                         data-ad-slot="7777777777"
                         data-ad-format="rectangle"
                       ></ins>
-
                     </div>
                   )}
 
                   {index === paragraphs.length - 4 && (
                     <div className="mid-article-ad">
-
                       <ins
                         className="adsbygoogle"
                         style={{ display: "block", width: "100%", height: "250px" }}
@@ -267,38 +231,29 @@ export default function Article() {
                         data-ad-slot="8888888888"
                         data-ad-format="rectangle"
                       ></ins>
-
                     </div>
                   )}
 
                 </div>
-
               ))}
-
             </div>
 
           </div>
 
-          {/* SIDEBAR AD */}
           <aside className="article-sidebar">
-            
             <div className="ad-300x600">
-             
               <ins
                 className="adsbygoogle"
                 style={{ display: "block", width: "300px", height: "600px" }}
                 data-ad-client="ca-pub-xxxxxxxxxxxxx"
                 data-ad-slot="3333333333"
               ></ins>
-
             </div>
-
           </aside>
 
         </div>
 
-      </div>
-
+      </article>
     </>
   );
 }

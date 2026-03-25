@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async"; // ✅ SEO IMPROVEMENT ADDED
+import { Helmet } from "react-helmet-async";
 import { supabase } from "../supabaseClient";
 import "./home.css";
 
@@ -16,12 +16,10 @@ export default function Home() {
   const [visibleCount, setVisibleCount] = useState(12);
   const navigate = useNavigate();
 
-  /* FIRST AD LOAD */
   useEffect(() => {
     reloadAds();
   }, []);
 
-  /* LOAD ARTICLES FROM SUPABASE */
   useEffect(() => {
     const load = async () => {
       try {
@@ -59,7 +57,6 @@ export default function Home() {
     ...remainingHeadlines
   ];
 
-  /* RELOAD ADS WHEN DATA READY */
   useEffect(() => {
     const timer = setTimeout(() => {
       reloadAds();
@@ -75,38 +72,37 @@ export default function Home() {
   };
 
   return (
-    <div className="home-container">
+    <main className="home-container">
 
-      {/* ✅ SEO META ADDED */}
       <Helmet>
         <title>ArenaPulse – Latest Breaking News & Sports</title>
+
         <meta
           name="description"
           content="ArenaPulse delivers the latest breaking news, trending stories, and live sports updates."
         />
 
-        {/* Open Graph */}
+        <link rel="canonical" href="https://arenapulse.site/" />
+
         <meta property="og:title" content="ArenaPulse – Breaking News" />
         <meta property="og:description" content="Latest breaking news and sports updates." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://arenapulse.com/" />
+        <meta property="og:url" content="https://arenapulse.site/" />
 
-        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
 
-        {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "NewsMediaOrganization",
             name: "ArenaPulse",
-            url: "https://arenapulse.com",
-            logo: "https://arenapulse.com/logo.png"
+            url: "https://arenapulse.site",
+            logo: "https://arenapulse.site/logo.png"
           })}
         </script>
       </Helmet>
 
-      {/* ===== NAV BAR AD (NEW) ===== */}
+      {/* NAV BAR AD */}
       <div className="nav-horizontal-ad">
         <div style={{ textAlign: "center", fontSize: "12px", color: "#888", marginBottom: "5px" }}>
             Advertisement
@@ -120,19 +116,20 @@ export default function Home() {
         ></ins>
       </div>
 
-      {/* ---------------- HEADLINES ---------------- */}
       <div className="headlines">
 
         {headlines[0] && (
           <div
             className="headline-main"
+            role="button"
+            tabIndex="0"
             onClick={() => navigate(`/article/${headlines[0].slug}`)}
           >
             <img
               src={headlines[0].image || ""}
               alt={headlines[0].title}
-              loading="lazy"        // ✅ PERFORMANCE IMPROVEMENT
-              decoding="async"      // ✅ PERFORMANCE IMPROVEMENT
+              loading="lazy"
+              decoding="async"
             />
             <div className="overlay">
               <h2>{headlines[0].title}</h2>
@@ -146,6 +143,8 @@ export default function Home() {
           {headlines[1] && (
             <div
               className="headline-small"
+              role="button"
+              tabIndex="0"
               onClick={() => navigate(`/article/${headlines[1].slug}`)}
             >
               <img
@@ -163,6 +162,8 @@ export default function Home() {
           {headlines[2] && (
             <div
               className="headline-small"
+              role="button"
+              tabIndex="0"
               onClick={() => navigate(`/article/${headlines[2].slug}`)}
             >
               <img
@@ -180,7 +181,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* TOP AD */}
       <div className="home-ad">
         <div style={{ textAlign: "center", fontSize: "12px", color: "#888", marginBottom: "5px" }}>
             Advertisement
@@ -195,19 +195,20 @@ export default function Home() {
         ></ins>
       </div>
 
-      {/* ---------------- ARTICLE GRID ---------------- */}
       <div className="articles-grid">
 
         {visibleArticles.map((a) => (
           <div
             key={a.id}
             className="article-card"
+            role="button"
+            tabIndex="0"
             onClick={() => navigate(`/article/${a.slug}`)}
           >
             <img
               src={a.image || ""}
               alt={a.title}
-              loading="lazy"   // ✅ PERFORMANCE IMPROVEMENT
+              loading="lazy"
               decoding="async"
             />
             <div className="text">
@@ -218,8 +219,7 @@ export default function Home() {
         ))}
 
       </div>
-      
-      {/* BOTTOM AD */}
+
       <div className="home-ad">
         <div style={{ textAlign: "center", fontSize: "12px", color: "#888", marginBottom: "5px" }}>
             Advertisement
@@ -233,13 +233,13 @@ export default function Home() {
           data-full-width-responsive="true"
         ></ins>
       </div>
-      
+
       {normals.length > visibleCount && (
         <button className="more-btn" onClick={showMore}>
           More
         </button>
       )}
 
-    </div>
+    </main>
   );
 }

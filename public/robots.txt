@@ -1,4 +1,11 @@
+# Allow all search engines to crawl the site
 User-agent: *
 Allow: /
 
-Sitemap: https://www.arenapulse.site/sitemap.xml
+# Sitemap location
+Sitemap: https://arenapulse.site/sitemap.xml
+
+# Optional: Disallow sensitive or non-public paths (if any)
+# Disallow: /admin
+# Disallow: /admin-dashboard
+# Disallow: /supabase-client
