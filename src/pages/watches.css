@@ -1,52 +1,28 @@
 /* PAGE */
-.technology-page{
+.watches-page{
   max-width:1100px;
   margin:auto;
 }
 
-/* ===== FEATURED TOP 3 ===== */
+/* ===== SINGLE FEATURED ===== */
 
-.tech-featured{
-  display:flex;
-  gap:20px;
-}
-
-.featured-main{
-  flex:2;
+.watch-featured-main{
   position:relative;
   overflow:hidden;
 }
 
-.featured-main img{
+.watch-featured-main img{
   width:100%;
-  height:420px;
+  max-width:1200px;
+  aspect-ratio:1200 / 630;
   object-fit:cover;
-  display:block;
-}
-
-.featured-side{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-}
-
-.featured-side a{
-  position:relative;
-  overflow:hidden;
-}
-
-.featured-side img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
+  object-position:center;
   display:block;
 }
 
 /* TEXT OVER IMAGE */
 
-.featured-main-text,
-.featured-side-text{
+.watch-featured-main-text{
   position:absolute;
   bottom:0;
   left:0;
@@ -54,40 +30,34 @@
   padding:15px;
   background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);
   color:#fff;
-
   box-sizing:border-box;
   overflow:hidden;
 }
 
-.featured-main-text h2{
+.watch-featured-main-text h2{
   margin:0;
   font-size:22px;
 }
 
-.featured-main-text p{
+.watch-featured-main-text p{
   margin-top:6px;
   font-size:14px;
 }
 
-.featured-side-text h3{
-  margin:0;
-  font-size:15px;
-}
-
 /* ===== ADS ===== */
 
-.tech-horizontal-ad{
+.watch-horizontal-ad{
   width:100%;
   text-align:center;
   margin:30px 0;
 }
 
-.tech-horizontal-ad ins{
+.watch-horizontal-ad ins{
   display:block;
   width:100%;
 }
 
-.tech-horizontal-ad::before{
+.watch-horizontal-ad::before{
   content:"Advertisement";
   display:block;
   font-size:12px;
@@ -98,8 +68,8 @@
 
 /* BIG ADS */
 
-.tech-horizontal-ad-top,
-.tech-horizontal-ad-bottom{
+.watch-horizontal-ad-top,
+.watch-horizontal-ad-bottom{
   width:970px;
   height:250px;
   background:#d6d6d6;
@@ -109,70 +79,55 @@
   overflow:hidden;
 }
 
-.tech-horizontal-ad-top ins,
-.tech-horizontal-ad-bottom ins,
-.tech-horizontal-ad-top iframe,
-.tech-horizontal-ad-bottom iframe{
+.watch-horizontal-ad-top ins,
+.watch-horizontal-ad-bottom ins,
+.watch-horizontal-ad-top iframe,
+.watch-horizontal-ad-bottom iframe{
   width:970px !important;
   height:250px !important;
   display:block !important;
 }
 
-/* ===== TECH LIST ===== */
+/* ===== WATCH LIST ===== */
 
-.tech-list{
+.watch-list{
   margin-top:30px;
   display:flex;
   flex-direction:column;
   gap:15px;
 }
 
-.tech-row{
+.watch-row{
   display:flex;
   justify-content:space-between;
   gap:30px;
-  padding:25px 0;
+  padding:40px 0;
   border-bottom:1px solid #eee;
   text-decoration:none;
   color:black;
 }
 
-.tech-text{
+.watch-text{
   flex:1.2;
 }
 
-.tech-text h3{
+.watch-text h3{
   font-size:22px;
   margin:10px 0;
 }
 
-.tech-text p{
+.watch-text p{
   color:#585858;
   font-size:15px;
 }
 
-.tech-row:hover h3{
+.watch-row:hover h3{
   color:#0077cc;
 }
 
 /* META */
 
-.meta{
-  font-size:12px;
-  color:gray;
-  display:flex;
-  gap:10px;
-  margin-bottom:5px;
-}
-
-.category{
-  background:#eee;
-  padding:3px 6px;
-  font-size:11px;
-  border-radius:3px;
-}
-
-.tech-author{
+.watch-author{
   font-size:12px;
   font-weight:600;
   font-style:italic;
@@ -180,28 +135,24 @@
   margin-bottom:6px;
 }
 
-.author{
-  font-size:13px;
-  margin-top:8px;
-  color:#777;
-}
-
-.tech-date{
+.watch-date{
   font-size:12px;
   color:#292929;
-  margin-top:60px;
+  margin-top:80px;
 }
 
 /* IMAGE */
 
-.tech-image{
+.watch-image{
   flex:1;
 }
 
-.tech-image img{
+.watch-image img{
   width:100%;
-  height:180px;
+  max-width:1200px;
+  aspect-ratio:1200 / 630;
   object-fit:cover;
+  object-position:center;
   border-radius:2px;
 }
 
@@ -209,31 +160,22 @@
 
 @media (max-width:900px){
 
-  .tech-featured{
-    flex-direction:column;
-  }
-
-  .featured-main img{
+  .watch-featured-main img{
     height:300px;
   }
 
-  .featured-side img{
-    height:180px;
-  }
-
-  .tech-row{
+  .watch-row{
     flex-direction:column;
   }
 
-  .tech-image img{
+  .watch-image img{
     height:200px;
   }
 
 }
-
 /* ===== NAV BANNER ===== */
 
-.tech-nav-banner{
+.watch-nav-banner{
   width:100%;
   background:#d8d7d7;
   text-align:center;
@@ -241,18 +183,17 @@
   overflow:hidden;
 }
 
-.tech-nav-banner ins.adsbygoogle{
+.watch-nav-banner ins.adsbygoogle{
   display:inline-block !important;
   width:970px !important;
   height:170px !important;
 }
 
-/* ===== FINAL MOBILE FIX (MATCH HOME PAGE) ===== */
+/* ===== FINAL MOBILE FIX (MATCH TECHNOLOGY PAGE) ===== */
 
 @media (max-width:768px){
 
-  /* NAV AD (TOP) */
-  .tech-nav-banner{
+  .watch-nav-banner{
     width:100%;
     max-width:100%;
     padding:6px 0;
@@ -260,15 +201,14 @@
     box-sizing:border-box;
   }
 
-  .tech-nav-banner ins.adsbygoogle{
+  .watch-nav-banner ins.adsbygoogle{
     width:100% !important;
     max-width:100% !important;
-    height:auto !important;   /* ✅ IMPORTANT */
+    height:auto !important;
     display:block !important;
   }
 
-  /* MAIN ADS */
-  .tech-horizontal-ad{
+  .watch-horizontal-ad{
     width:100%;
     max-width:100%;
     padding:6px 0;
@@ -276,26 +216,34 @@
     box-sizing:border-box;
   }
 
-  .tech-horizontal-ad ins.adsbygoogle{
+  .watch-horizontal-ad ins.adsbygoogle{
     width:100% !important;
     max-width:100% !important;
-    height:auto !important;   /* ✅ IMPORTANT */
+    height:auto !important;
     display:block !important;
   }
 
-  /* BIG ADS */
-  .tech-horizontal-ad-top,
-  .tech-horizontal-ad-bottom{
+  .watch-horizontal-ad-top,
+  .watch-horizontal-ad-bottom{
     width:100%;
     height:auto;
   }
 
-  .tech-horizontal-ad-top ins,
-  .tech-horizontal-ad-bottom ins,
-  .tech-horizontal-ad-top iframe,
-  .tech-horizontal-ad-bottom iframe{
+  .watch-horizontal-ad-top ins,
+  .watch-horizontal-ad-bottom ins,
+  .watch-horizontal-ad-top iframe,
+  .watch-horizontal-ad-bottom iframe{
     width:100% !important;
-    height:auto !important;   /* ✅ IMPORTANT */
+    height:auto !important;
   }
 
+}
+/* FIX TEXT OVERFLOW */
+.watch-text h3,
+.watch-text p,
+.watch-featured-main-text h2,
+.watch-featured-main-text p{
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }

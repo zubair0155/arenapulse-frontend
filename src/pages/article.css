@@ -22,10 +22,15 @@
   min-width:0;
 }
 
+/* ===== STICKY SIDEBAR ===== */
 .news-article-page .article-sidebar{
   width:300px;
   position:sticky;
-  top:90px;
+  top:100px;
+  align-self:flex-start;
+  height:fit-content;
+  display:flex;
+  justify-content:center;
 }
 
 /* ===== TITLE ===== */
@@ -184,19 +189,6 @@
   display: block;
 }
 
-/* ===== Mobile Optimization ===== */
-@media (max-width: 768px) {
-
-  .top-affiliate-banner {
-    margin: 12px 0 20px 0;
-  }
-
-  .top-affiliate-banner a {
-    max-width: 100%;
-  }
-
-}
-
 /* MOBILE */
 @media(max-width:1000px){
   .news-article-page .article-layout{
@@ -204,6 +196,7 @@
   }
 
   .news-article-page .article-sidebar{
+    position:static;
     width:100%;
   }
 
@@ -214,25 +207,14 @@
 }
 
 /* ================================================= */
-/* ========= ADDED FIXES (DO NOT REMOVE) ============ */
+/* ========= ADDED FIXES ============================ */
 /* ================================================= */
-
-/* make adsense fill containers */
 
 .news-article-page ins.adsbygoogle{
   display:block !important;
   width:100% !important;
   text-align:center;
 }
-
-/* ensure sidebar ad stays centered */
-
-.news-article-page .article-sidebar{
-  display:flex;
-  justify-content:center;
-}
-
-/* allow html formatting in article */
 
 .news-article-page .article-content p{
   margin-bottom:16px;
@@ -252,51 +234,19 @@
 .news-article-page .article-content em{
   font-style:italic;
 }
-.news-article-page .article-content .mid-article-ad {
-  display: block;        /* force it to flow like a normal block */
-  width: 100%;           /* full width of content */
-  max-width: 100%;       /* prevent overflow */
-  min-height: 90px;      /* match AdSense height */
-  margin: 40px 0;        /* vertical spacing */
-  text-align: center;    /* center ad horizontally */
-  position: relative;
-}
 
-.news-article-page .article-content .mid-article-ad ins.adsbygoogle{
-  width:100% !important;
-  height:90px !important;
-  display:inline-block !important;
-}
-
-/* ===== FINAL SIDEBAR STICKY FIX ===== */
-
-.news-article-page .article-layout{
-  align-items:flex-start;
-}
-
-.news-article-page .article-sidebar{
-  position:sticky;
-  top:120px;
-  align-self:flex-start;
-}
-
-.news-article-page .ad-300x600{
-  width:300px;
-  height:600px;
-}
-
-/* ===== MOBILE FIX: SIDE AD AS SQUARE AT BOTTOM ===== */
+/* ===== FINAL MOBILE FIX ===== */
 @media(max-width:768px){
   .news-article-page .article-sidebar{
-    position:static;       /* stop sticky so it flows to bottom */
+    position:static;
     display:block;
     width:100%;
     margin-top:0px;
   }
 
   .news-article-page .ad-300x600{
-    width:350px;           /* square width */
-    height:350px;          /* square height */
-    margin:0px auto;      /* center horizontally */
+    width:350px;
+    height:350px;
+    margin:0 auto;
   }
 }

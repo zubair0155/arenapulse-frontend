@@ -8,8 +8,9 @@ export default function About() {
       <section className="about-info">
 
         <p>
-          Welcome to <strong>ArenaPulse</strong> — your modern digital destination for News, Technology, and Live coverage.
-          We deliver timely, reliable, and engaging content to keep you informed in a fast-moving world.
+          Welcome to <strong>ArenaPulse</strong> — your modern digital destination for News, Technology, 
+          and product insights. We deliver timely, reliable, and engaging content to keep you informed 
+          in a fast-moving world.
         </p>
 
         <h2>📰 News Coverage</h2>
@@ -26,12 +27,17 @@ export default function About() {
           We simplify complex tech topics so everyone can understand and stay ahead.
         </p>
 
-        <h2>📺 Live Channels</h2>
-        <p>We provide live streaming directly on our platform, including:</p>
-        <ul>
-          <li>Live News Channel (YouTube embedded)</li>
-          <li>Live Sports Channel (YouTube embedded)</li>
-        </ul>
+        <h2>⌚ Watches & Buying Guides</h2>
+        <p>
+          Our Watches section features detailed articles about smart watches, luxury watches, 
+          and affordable everyday timepieces. We provide helpful information, comparisons, 
+          and highlights to help readers choose the right watch based on their needs and budget.
+        </p>
+
+        <p>
+          Some articles may include affiliate links to trusted marketplaces such as Amazon, 
+          eBay, AliExpress, or other online stores. When you click these links and make a purchase.
+        </p>
 
         <h2>📝 Articles We Publish</h2>
         <ul>
@@ -39,12 +45,14 @@ export default function About() {
           <li>Breaking news updates</li>
           <li>Stock market insights</li>
           <li>Technology analysis and trends</li>
+          <li>Watch reviews and buying guides</li>
         </ul>
 
         <h2>🎯 Our Mission</h2>
         <p>
           At ArenaPulse, we aim to provide accessible, transparent,
-          and valuable journalism that informs and empowers our readers.
+          and valuable journalism and product insights that inform 
+          and empower our readers.
         </p>
 
         <h2>📩 Contact</h2>

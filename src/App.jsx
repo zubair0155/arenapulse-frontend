@@ -5,14 +5,14 @@ import { Suspense, lazy } from "react";
 /* Lazy loading for better initial load speed */
 const LazyAdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 const LazyAdmin = lazy(() => import("./pages/Admin"));
-const LazyChannel = lazy(() => import("./pages/Channel"));
 const LazyHome = lazy(() => import("./pages/Home"));
-const LazyWatch = lazy(() => import("./pages/Watch"));
 const LazyArticle = lazy(() => import("./pages/Article"));
 const LazyAbout = lazy(() => import("./pages/About"));
 const LazyTechnology = lazy(() => import("./pages/Technology"));
 const LazyTechnologyArticle = lazy(() => import("./pages/TechnologyArticle"));
 const LazyPrivacy = lazy(() => import("./pages/Privacy"));
+const LazyWatches = lazy(() => import("./pages/Watches"));
+const LazyWatchesArticle = lazy(() => import("./pages/WatchesArticle")); // ✅ ADDED
 
 import Footer from "./components/Footer";
 import Contact from "./pages/Contact";
@@ -37,16 +37,14 @@ function App() {
 
       {/* HEADER */}
       <header>
-        {/* LOGO */}
         <h1 className="site-logo">
           <Link to="/">ArenaPulse</Link>
         </h1>
 
-        {/* NAVIGATION */}
         <nav className="nav" aria-label="Main Navigation">
           <Link to="/">Home</Link>
           <Link to="/technology">Tech</Link>
-          <Link to="/channel">Channel</Link>
+          <Link to="/watches">Watches</Link>
           <Link to="/about">About</Link>
         </nav>
       </header>
@@ -54,8 +52,6 @@ function App() {
       <Suspense fallback={<div className="loading">Loading...</div>}>
         <Routes>
           <Route path="/" element={<LazyHome />} />
-          <Route path="/channel" element={<LazyChannel />} />
-          <Route path="/watch/:id" element={<LazyWatch />} />
           <Route path="/article/:slug" element={<LazyArticle />} />
           <Route path="/admin" element={<LazyAdmin />} />
           <Route path="/admin-dashboard" element={<LazyAdminDashboard />} />
@@ -64,6 +60,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/tech/:slug" element={<LazyTechnologyArticle />} />
           <Route path="/privacy" element={<LazyPrivacy />} />
+          <Route path="/watches" element={<LazyWatches />} />
+          <Route path="/watches/:slug" element={<LazyWatchesArticle />} /> {/* ✅ FIXED */}
         </Routes>
       </Suspense>
 
