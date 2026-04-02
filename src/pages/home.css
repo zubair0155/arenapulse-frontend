@@ -167,6 +167,13 @@ html, body {
   border-radius:8px;
   cursor:pointer;
 }
+.meta {
+  font-size:12px;
+  font-weight:600;
+  font-style:italic;
+  color:#2e744d;
+  margin-bottom:6px;
+}
 
 /* ================= MOBILE ================= */
 

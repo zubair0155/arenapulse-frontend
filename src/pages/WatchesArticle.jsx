@@ -92,6 +92,15 @@ export default function WatchesArticle() {
     }
   };
 
+  // ✅ ADDED DATE FORMATTER
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric"
+    });
+  };
+
   return (
     <>
       {/* ================= SEO ================= */}
@@ -99,23 +108,19 @@ export default function WatchesArticle() {
         <title>{article.title} | ArenaPulse</title>
         <meta name="description" content={article.summary || article.title} />
 
-        {/* Open Graph */}
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.summary || article.title} />
         <meta property="og:image" content={article.image} />
         <meta property="og:url" content={url} />
         <meta property="og:type" content="article" />
 
-        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={article.title} />
         <meta name="twitter:description" content={article.summary || article.title} />
         <meta name="twitter:image" content={article.image} />
 
-        {/* Canonical */}
         <link rel="canonical" href={url} />
 
-        {/* JSON-LD Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -152,11 +157,20 @@ export default function WatchesArticle() {
               ← Back
             </button>
             <h1 className="article-title">{article.title}</h1>
+
+            {/* ✅ ADDED AUTHOR + DATE */}
+            <div className="watches-meta">
+              <span>By {article.author || "Zubair.K"}</span>
+              <span className="watches-dot"> - </span>
+              <span>{formatDate(article.created_at)}</span>
+            </div>
+
           </div>
 
           {/* IMAGE */}
           {article.image && (
             <div className="image-wrapper">
+
               <img
                 src={article.image}
                 className="article-image-full"

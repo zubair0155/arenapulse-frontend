@@ -9,6 +9,15 @@ export default function Technology() {
   const [articles, setArticles] = useState([]);
   const [visibleCount, setVisibleCount] = useState(12);
 
+  // ✅ ADDED (date formatter)
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric"
+    });
+  };
+
   const getArticleUrl = (article) => `/tech/${article.slug || article.id}`;
 
   const reloadAds = () => {
@@ -168,10 +177,14 @@ export default function Technology() {
           <React.Fragment key={article.id}>
             <Link to={getArticleUrl(article)} className="tech-row">
               <div className="tech-text">
-                {article.author && <div className="tech-author">By {article.author}</div>}
+                <div className="tech-author">
+                  By {article.author || "Zubair.K"}
+                </div>
                 <h3>{article.title}</h3>
                 <p>{article.summary}</p>
-                <div className="tech-date">{new Date(article.created_at).toLocaleDateString()}</div>
+                <div className="tech-date">
+                  {formatDate(article.created_at)}
+                </div>
               </div>
               <div className="tech-image">
                 <img

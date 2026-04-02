@@ -9,6 +9,15 @@ export default function Watches() {
   const [articles, setArticles] = useState([]);
   const [visibleCount, setVisibleCount] = useState(12);
 
+  // ✅ ADDED (same as home.jsx)
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric"
+    });
+  };
+
   const getArticleUrl = (article) => `/watches/${article.slug || article.id}`;
 
   const reloadAds = () => {
@@ -135,11 +144,18 @@ export default function Watches() {
             <Link to={getArticleUrl(article)} className="watch-row">
 
               <div className="watch-text">
-                {article.author && <div className="watch-author">By {article.author}</div>}
+                
+                {/* ✅ ADDED fallback author */}
+                <div className="watch-author">
+                  By {article.author || "Zubair.K"}
+                </div>
+
                 <h3>{article.title}</h3>
                 <p>{article.summary}</p>
+
+                {/* ✅ ADDED formatted date */}
                 <div className="watch-date">
-                  {new Date(article.created_at).toLocaleDateString()}
+                  {formatDate(article.created_at)}
                 </div>
               </div>
 

@@ -90,6 +90,15 @@ export default function TechnologyArticle() {
     }
   };
 
+  // ✅ ADDED DATE FORMATTER
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric"
+    });
+  };
+
   return (
     <>
       <Helmet>
@@ -131,10 +140,19 @@ export default function TechnologyArticle() {
             <div className="title-section">
               <button className="back-btn" onClick={() => window.history.back()}>← Back</button>
               <h1 className="article-title">{article.title}</h1>
+
+              {/* ✅ ADDED AUTHOR + DATE */}
+              <div className="tech-meta">
+                <span>By {article.author || "Zubair.K"}</span>
+                <span className="tech-dot"> - </span>
+                <span>{formatDate(article.created_at)}</span>
+              </div>
+
             </div>
 
             {article.image && (
               <div className="image-wrapper">
+
                 <img
                   src={article.image}
                   className="article-image"

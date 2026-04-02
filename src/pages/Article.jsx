@@ -18,7 +18,7 @@ export default function Article() {
     const fetchArticle = async () => {
       const { data, error } = await supabase
          .from("articles")
-         .select("id,title,summary,content,image,position,created_at,slug")
+         .select("id,title,summary,content,image,position,created_at,slug,author")
          .eq("slug", slug)
          .single();
 
@@ -93,6 +93,15 @@ export default function Article() {
     }
   };
 
+  // ✅ ADDED DATE FORMATTER
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric"
+    });
+  };
+
   return (
     <>
       <Helmet>
@@ -164,10 +173,19 @@ export default function Article() {
               </button>
 
               <h1 className="article-title">{article.title}</h1>
-            </div>
 
+              {/* ✅ ADDED AUTHOR + DATE */}
+              <div className="article-meta">
+                <span>By {article.author || "Zubair.K"}</span>
+                <span className="article-dot"> - </span>
+                <span>{formatDate(article.created_at)}</span>
+              </div>
+
+            </div>
+              
             {article.image && (
               <div className="image-wrapper">
+
                 <img
                   src={article.image}
                   className="article-image"

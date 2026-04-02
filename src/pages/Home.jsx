@@ -16,6 +16,15 @@ export default function Home() {
   const [visibleCount, setVisibleCount] = useState(12);
   const navigate = useNavigate();
 
+  // ✅ ADDED: date formatter
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric"
+    });
+  };
+
   useEffect(() => {
     reloadAds();
   }, []);
@@ -213,6 +222,14 @@ export default function Home() {
             />
             <div className="text">
               <h3>{a.title}</h3>
+
+              {/* ✅ ADDED author + date */}
+              <div className="meta">
+                <span>By {a.author || "Zubair.K"}</span>
+                <span> - </span>
+                <span>{formatDate(a.created_at)}</span>
+              </div>
+
               <p>{a.summary}</p>
             </div>
           </div>

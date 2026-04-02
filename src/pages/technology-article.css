@@ -200,6 +200,28 @@
   box-sizing: border-box;
   background: #c4c4c4;
 }
+.image-wrapper {
+  position: relative;
+}
+.tech-meta {
+  display: flex;
+  gap: 6px;
+  font-size: 13px;
+  color: #777;
+  position: absolute;
+  margin: 8px 0 14px;
+  top: 366px;
+  left: 90px;
+  background: rgba(107, 107, 107, 0.7);
+  color: rgb(255, 255, 255);
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  font-style: italic;
+}
+.tech-dot {
+  color: #ffffff;
+}
 /* ===============================
    MOBILE
 ================================ */
@@ -216,7 +238,6 @@
   }
 
 }
-
 /* ================================================= */
 /* ========= ADDED FIXES (DO NOT REMOVE) ============ */
 /* ================================================= */
