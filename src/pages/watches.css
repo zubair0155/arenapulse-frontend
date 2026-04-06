@@ -1,6 +1,6 @@
 /* PAGE */
 .watches-page{
-  max-width:1100px;
+  max-width:1200px;
   margin:auto;
 }
 
@@ -14,7 +14,6 @@
 .watch-featured-main img{
   width:100%;
   max-width:1200px;
-  aspect-ratio:1200 / 630;
   object-fit:cover;
   object-position:center;
   display:block;

@@ -34,7 +34,7 @@ html, body {
 
 .headline-main{
   position:relative;
-  height:420px;
+  height: 420px;
   overflow:hidden;
   cursor:pointer;
 }

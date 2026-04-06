@@ -1,6 +1,6 @@
 /* PAGE */
 .technology-page{
-  max-width:1100px;
+  max-width:1200px;
   margin:auto;
 }
 
@@ -13,15 +13,16 @@
 
 .featured-main{
   flex:2;
+  height:420px;
   position:relative;
   overflow:hidden;
 }
 
 .featured-main img{
   width:100%;
-  height:420px;
+  height:100%;
   object-fit:cover;
-  display:block;
+  display: block;
 }
 
 .featured-side{
@@ -159,7 +160,7 @@
 
 .meta{
   font-size:12px;
-  color:gray;
+  color:#2c744c;
   display:flex;
   gap:10px;
   margin-bottom:5px;
@@ -188,7 +189,9 @@
 
 .tech-date{
   font-size:12px;
-  color:#292929;
+  font-style:italic;
+  font-weight: 600;
+  color:#2c744c;
   margin-top:60px;
 }
 
@@ -200,7 +203,7 @@
 
 .tech-image img{
   width:100%;
-  height:180px;
+  height:220px;
   object-fit:cover;
   border-radius:2px;
 }
@@ -210,7 +213,7 @@
 @media (max-width:900px){
 
   .tech-featured{
-    flex-direction:column;
+    flex-direction: column;
   }
 
   .featured-main img{
