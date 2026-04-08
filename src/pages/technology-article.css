@@ -3,7 +3,7 @@
 ================================ */
 
 .technology-article-page{
-  max-width:1300px;
+  max-width:1200px;
   margin:0 auto;
   padding:20px 10px;
 }
@@ -312,7 +312,7 @@
 
   .technology-article-page .tech-meta {
     position: absolute !important;
-    top: 645px !important;
+    top: 630px !important;
     left: 30px !important;
     margin: 0 !important;
     bottom: auto !important;

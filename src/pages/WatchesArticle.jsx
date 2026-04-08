@@ -225,7 +225,7 @@ export default function WatchesArticle() {
                   </div>
                 )}
 
-                {index === paragraphs.length - 3 && (
+                {index === paragraphs.length - 4 && (
                   <div className="mid-article-ad">
                     <ins
                       className="adsbygoogle"

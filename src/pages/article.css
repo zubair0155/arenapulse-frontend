@@ -1,7 +1,7 @@
 /* ================= NEWS ARTICLE PAGE ================= */
 
 .news-article-page{
-  max-width:1300px;
+  max-width:1200px;
   margin:0 auto;
   padding:10px;
 }
@@ -276,7 +276,7 @@
 
   .news-article-page .article-meta {
     position: absolute !important;
-    top: 690px !important;
+    top: 675px !important;
     left: 30px !important;
     margin: 0 !important;
     bottom: auto !important;

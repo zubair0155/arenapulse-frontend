@@ -5,7 +5,6 @@ import { Helmet } from "react-helmet-async";
 import "./article.css";
 
 export default function Article() {
-
   const { slug } = useParams();
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -17,10 +16,12 @@ export default function Article() {
   useEffect(() => {
     const fetchArticle = async () => {
       const { data, error } = await supabase
-         .from("articles")
-         .select("id,title,summary,content,image,position,created_at,slug,author")
-         .eq("slug", slug)
-         .single();
+        .from("articles")
+        .select(
+          "id,title,summary,content,image,position,created_at,slug,author"
+        )
+        .eq("slug", slug)
+        .single();
 
       if (error) {
         console.error(error);
@@ -34,6 +35,24 @@ export default function Article() {
 
     fetchArticle();
   }, [slug]);
+
+  // ✅ Adsterra Social Bar
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src =
+      "https://pl29090120.profitablecpmratenetwork.com/3d/21/15/3d2115ae1266f8ee58e11784779cbff0.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
+  // ✅ Adsterra Popunder
+useEffect(() => {
+  const script = document.createElement("script");
+  script.src = 
+     "https://pl29099968.profitablecpmratenetwork.com/7c/e3/20/7ce32019c1c4961e6a8e3c72de2fa31d.js";
+  script.async = true;
+  document.body.appendChild(script);
+}, []);
 
   useEffect(() => {
     if (!article) return;
@@ -64,9 +83,7 @@ export default function Article() {
   if (loading) return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
   if (!article) return <h2 style={{ textAlign: "center" }}>Article not found</h2>;
 
-  const paragraphs = article.content
-    ? article.content.split("</p>")
-    : [];
+  const paragraphs = article.content ? article.content.split("</p>") : [];
 
   const share = (type) => {
     const text = article.title + " " + url;
@@ -93,17 +110,16 @@ export default function Article() {
     }
   };
 
-  // ✅ ADDED DATE FORMATTER
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString("en-US", {
       year: "numeric",
       month: "short",
-      day: "numeric"
+      day: "numeric",
     });
   };
 
   return (
-    <>
+    <div>
       <Helmet>
         <title>{article.title} | ArenaPulse</title>
 
@@ -132,60 +148,48 @@ export default function Article() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "NewsArticle",
-            "mainEntityOfPage": {
+            mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": url
+              "@id": url,
             },
-            "headline": article.title,
-            "image": [article.image],
-            "datePublished": article.created_at,
-            "dateModified": article.created_at,
-            "author": {
+            headline: article.title,
+            image: [article.image],
+            datePublished: article.created_at,
+            dateModified: article.created_at,
+            author: {
               "@type": "Organization",
-              "name": "ArenaPulse"
+              name: "ArenaPulse",
             },
-            "publisher": {
+            publisher: {
               "@type": "Organization",
-              "name": "ArenaPulse",
-              "logo": {
+              name: "ArenaPulse",
+              logo: {
                 "@type": "ImageObject",
-                "url": "https://arenapulse.site/logo.png"
-              }
+                url: "https://arenapulse.site/logo.png",
+              },
             },
-            "description": article.summary
+            description: article.summary,
           })}
         </script>
-
       </Helmet>
 
       <article className="news-article-page">
-
         <div className="article-layout">
-
           <div className="article-main">
-
             <div className="title-section">
-              <button
-                className="back-btn"
-                onClick={() => window.history.back()}
-              >
+              <button className="back-btn" onClick={() => window.history.back()}>
                 ← Back
               </button>
-
               <h1 className="article-title">{article.title}</h1>
-
-              {/* ✅ ADDED AUTHOR + DATE */}
               <div className="article-meta">
                 <span>By {article.author || "Zubair.K"}</span>
                 <span className="article-dot"> - </span>
                 <span>{formatDate(article.created_at)}</span>
               </div>
-
             </div>
-              
+
             {article.image && (
               <div className="image-wrapper">
-
                 <img
                   src={article.image}
                   className="article-image"
@@ -194,7 +198,6 @@ export default function Article() {
                   decoding="async"
                   fetchpriority="high"
                 />
-
                 <div className="share-corner" ref={shareRef}>
                   <button
                     className="share-btn"
@@ -251,11 +254,9 @@ export default function Article() {
                       ></ins>
                     </div>
                   )}
-
                 </div>
               ))}
             </div>
-
           </div>
 
           <aside className="article-sidebar">
@@ -268,10 +269,8 @@ export default function Article() {
               ></ins>
             </div>
           </aside>
-
         </div>
-
       </article>
-    </>
+    </div>
   );
 }

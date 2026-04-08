@@ -3,7 +3,7 @@
 ================================ */
 
 .watches-article-page{
-  max-width:1300px;
+  max-width:1200px;
   margin:0 auto;
   padding:20px 10px;
 }
@@ -68,7 +68,7 @@
   object-fit:cover;
   border-radius:8px;
   display:block;
-  margin-bottom:30px;
+  margin-bottom:55px;
 }
 
 /* ===============================
@@ -226,7 +226,7 @@
 
   .watches-article-page .watches-meta {
     position: absolute !important;
-    top: 605px !important;
+    top: 590px !important;
     left: 30px !important;
     margin: 0 !important;
     bottom: auto !important;
