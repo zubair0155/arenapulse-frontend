@@ -43,6 +43,24 @@ export default function TechnologyArticle() {
     loadArticle();
   }, [slug]);
 
+  // ✅ Adsterra Social Bar
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src =
+      "https://pl29090120.profitablecpmratenetwork.com/3d/21/15/3d2115ae1266f8ee58e11784779cbff0.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
+  // ✅ Adsterra Popunder
+useEffect(() => {
+  const script = document.createElement("script");
+  script.src = 
+     "https://pl29099968.profitablecpmratenetwork.com/7c/e3/20/7ce32019c1c4961e6a8e3c72de2fa31d.js";
+  script.async = true;
+  document.body.appendChild(script);
+}, []);
+
   useEffect(() => {
     if (!article) return;
     setTimeout(() => {

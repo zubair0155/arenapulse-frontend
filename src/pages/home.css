@@ -295,7 +295,7 @@ html, body {
   .nav-horizontal-ad ins.adsbygoogle{
     width:100% !important;
     max-width:100% !important;
-    height:auto !important;
+    height:170px !important;
     display:block !important;
 
   }
@@ -314,7 +314,40 @@ html, body {
   .nav-horizontal-ad ins.adsbygoogle {
     width:100% !important;
     max-width:100% !important;
-    height:100px !important;  /* fixed mobile height */
+    height:170px !important;  /* fixed mobile height */
     display:block !important;
   }
+}
+/* ===== FINAL NAV AD HEIGHT FIX ===== */
+
+.nav-horizontal-ad{
+  height:170px;
+  max-height:170px;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.nav-horizontal-ad ins.adsbygoogle{
+  width:970px !important;
+  height:170px !important;
+  max-height:170px !important;
+  display:inline-block !important;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+  .nav-horizontal-ad{
+    height:170px !important;
+    max-height:170px !important;
+    overflow:hidden;
+  }
+
+  .nav-horizontal-ad ins.adsbygoogle{
+    height:170px !important;
+    max-height:170px !important;
+  }
+
 }

@@ -302,3 +302,50 @@
   }
 
 }
+/* ===== FINAL FIX: TECH NAV AD BANNER (HEIGHT + CENTER LABEL) ===== */
+
+.tech-nav-banner{
+  position: relative;
+  height:170px;
+  max-height:170px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+/* lock ad size */
+.tech-nav-banner ins.adsbygoogle{
+  width:970px !important;
+  height:170px !important;
+  max-height:170px !important;
+  display:inline-block !important;
+}
+
+/* center "Advertisement" label at top */
+.tech-nav-banner .ad-label{
+  position:absolute;
+  top:2px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:11px;
+  color:#666;
+  z-index:10;
+  pointer-events:none;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+  .tech-nav-banner{
+    height:170px !important;
+    max-height:170px !important;
+    overflow:hidden;
+  }
+
+  .tech-nav-banner ins.adsbygoogle{
+    height:170px !important;
+    max-height:170px !important;
+  }
+
+}
