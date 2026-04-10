@@ -44,15 +44,7 @@ export default function Article() {
     script.async = true;
     document.body.appendChild(script);
   }, []);
-
-  // ✅ Adsterra Popunder
-useEffect(() => {
-  const script = document.createElement("script");
-  script.src = 
-     "https://pl29099968.profitablecpmratenetwork.com/7c/e3/20/7ce32019c1c4961e6a8e3c72de2fa31d.js";
-  script.async = true;
-  document.body.appendChild(script);
-}, []);
+// Adsterra code finished
 
   useEffect(() => {
     if (!article) return;

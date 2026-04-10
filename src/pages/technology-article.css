@@ -164,10 +164,10 @@
   height:600px;
   background:rgba(0,0,0,0.04);
   border-radius:10px;
-  display:flex;
   align-items:center;
   justify-content:center;
   overflow:hidden;
+  position: sticky;
 }
 /* Mid Article Ad Placeholder */
 .mid-article-ad {

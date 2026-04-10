@@ -44,22 +44,14 @@ export default function TechnologyArticle() {
   }, [slug]);
 
   // ✅ Adsterra Social Bar
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src =
-      "https://pl29090120.profitablecpmratenetwork.com/3d/21/15/3d2115ae1266f8ee58e11784779cbff0.js";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
-
-  // ✅ Adsterra Popunder
-useEffect(() => {
-  const script = document.createElement("script");
-  script.src = 
-     "https://pl29099968.profitablecpmratenetwork.com/7c/e3/20/7ce32019c1c4961e6a8e3c72de2fa31d.js";
-  script.async = true;
-  document.body.appendChild(script);
-}, []);
+    useEffect(() => {
+      const script = document.createElement("script");
+      script.src =
+        "https://pl29090120.profitablecpmratenetwork.com/3d/21/15/3d2115ae1266f8ee58e11784779cbff0.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }, []);
+  // Adsterra code finished
 
   useEffect(() => {
     if (!article) return;
@@ -204,7 +196,7 @@ useEffect(() => {
                 <div key={index}>
                   <div dangerouslySetInnerHTML={{ __html: para }} />
                   {index === 0 && (
-                    <div className="mid-article-ad">
+                   <div className="mid-article-ad">
                       <ins className="adsbygoogle"
                         style={{ display:"block", width:"100%", height:"250px" }}
                         data-ad-client="ca-pub-xxxxxxxxxxxxx"
@@ -222,23 +214,22 @@ useEffect(() => {
                         data-ad-format="rectangle"
                         data-full-width-responsive="true"/>
                     </div>
+
                   )}
                 </div>
               ))}
             </div>
           </div>
-
           <aside className="article-sidebar">
-            <div className="ad-300x600">
+             <div className="ad-300x600">
               <ins className="adsbygoogle"
                 style={{ display:"block", width:"300px", height:"600px" }}
                 data-ad-client="ca-pub-xxxxxxxxxxxxx"
                 data-ad-slot="2222222222"/>
-            </div>
+             </div>
           </aside>
-
-        </div>
       </div>
+    </div>
     </>
   );
 }
