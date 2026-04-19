@@ -206,7 +206,7 @@ html, body {
   }
 
   .headline-main{
-    height:250px;
+    height:260px;
   }
   .headline-main .overlay{
     padding:12px;
@@ -349,5 +349,4 @@ html, body {
     height:170px !important;
     max-height:170px !important;
   }
-
 }

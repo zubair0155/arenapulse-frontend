@@ -162,17 +162,15 @@
 @media (max-width:900px){
 
   .watch-featured-main img{
-    height:300px;
+    height:260px;
   }
-
   .watch-row{
     flex-direction:column;
   }
-
   .watch-image img{
     height:200px;
   }
-
+  
 }
 /* ===== NAV BANNER ===== */
 

@@ -23,7 +23,7 @@ function App() {
 
       {/* SEO META */}
       <Helmet>
-        <title>ArenaPulse – Breaking News & Live Sports</title>
+        <title>ArenaPulse – Global News & Technology Information </title>
         <meta
           name="description"
           content="ArenaPulse brings breaking world news, trending stories, and live sports channels in one place."
