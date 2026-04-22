@@ -36,28 +36,39 @@ export default function Article() {
     fetchArticle();
   }, [slug]);
 
-  // ✅ Adsterra Social Bar
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src =
-      "https://pl29090120.profitablecpmratenetwork.com/3d/21/15/3d2115ae1266f8ee58e11784779cbff0.js";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
-// Adsterra code finished
-
+ // ✅ FIXED ADSTERRA (WORKING FOR ALL ADS)
   useEffect(() => {
     if (!article) return;
 
-    const timer = setTimeout(() => {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      } catch {}
-    }, 800);
+    const loadAd = (id, key, width, height, delay) => {
+      setTimeout(() => {
+        const container = document.getElementById(id);
+        if (!container) return;
 
-    return () => clearTimeout(timer);
+        container.innerHTML = "";
+
+        window.atOptions = {
+          key: key,
+          format: "iframe",
+          height: height,
+          width: width,
+          params: {},
+        };
+
+        const script = document.createElement("script");
+        script.src = `https://www.highperformanceformat.com/${key}/invoke.js`;
+        script.async = true;
+
+        container.appendChild(script);
+      }, delay);
+    };
+
+    // 🔥 In-article ads
+    loadAd("adsterra-1", "9fa451a1db5818716decec8034cb2a5d", 300, 250, 800);
+    loadAd("adsterra-2", "9fa451a1db5818716decec8034cb2a5d", 300, 250, 1800);
+
+    // 🔥 Sidebar ad
+    loadAd("adsterra-side", "3068b0afa2c3fa20225a0b311dab47de", 160, 600, 2500);
   }, [article]);
 
   useEffect(() => {
@@ -223,27 +234,15 @@ export default function Article() {
                 <div key={index}>
                   <p dangerouslySetInnerHTML={{ __html: para }} />
 
-                  {index === 0 && (
+                {index === 0 && (
                     <div className="mid-article-ad">
-                      <ins
-                        className="adsbygoogle"
-                        style={{ display: "block", width: "100%", height: "250px" }}
-                        data-ad-client="ca-pub-xxxxxxxxxxxxx"
-                        data-ad-slot="7777777777"
-                        data-ad-format="rectangle"
-                      ></ins>
+                      <div id="adsterra-1"></div>
                     </div>
                   )}
 
-                  {index === paragraphs.length - 4 && (
+                  {index === paragraphs.length - 5 && (
                     <div className="mid-article-ad">
-                      <ins
-                        className="adsbygoogle"
-                        style={{ display: "block", width: "100%", height: "250px" }}
-                        data-ad-client="ca-pub-xxxxxxxxxxxxx"
-                        data-ad-slot="8888888888"
-                        data-ad-format="rectangle"
-                      ></ins>
+                      <div id="adsterra-2"></div>
                     </div>
                   )}
                 </div>
@@ -251,14 +250,10 @@ export default function Article() {
             </div>
           </div>
 
+          {/* ✅ SIDEBAR FIXED */}
           <aside className="article-sidebar">
             <div className="ad-300x600">
-              <ins
-                className="adsbygoogle"
-                style={{ display: "block", width: "300px", height: "600px" }}
-                data-ad-client="ca-pub-xxxxxxxxxxxxx"
-                data-ad-slot="3333333333"
-              ></ins>
+              <div id="adsterra-side"></div>
             </div>
           </aside>
         </div>

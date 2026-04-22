@@ -134,35 +134,22 @@
 
 /* ===== ADS ===== */
 
-.news-article-page .ad-300x600{
-  width:300px;
-  height:600px;
-  background:rgba(0,0,0,0.04);
-  border-radius:10px;
-  align-items:center;
-  justify-content:center;
-  position: sticky;
-}
-
 .mid-article-ad {
   margin: 40px 0;
   min-height: 120px;
-  background-color: #f1f1f1;
-  border: 1px solid #ddd;
   border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
-
+/* Optional: Show AD label advertisement */
 .mid-article-ad::before {
-  content: "Advertisement";
   position: absolute;
   text-align: center;
   top: 8px;
   font-size: 12px;
-  color: #888;
+  color: #888888;
   letter-spacing: 1px;
 }
 
@@ -288,4 +275,25 @@
     z-index: 5;
   }
 
+}
+/* MOBILE FIX FOR SIDEBAR AD */
+@media (max-width: 768px) {
+
+  .article-sidebar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .ad-300x600 {
+    width: 300px !important;
+    height: 250px !important;
+    overflow: hidden;
+  }
+
+  .ad-300x600 iframe {
+    width: 300px !important;
+    height: 250px !important;
+  }
 }

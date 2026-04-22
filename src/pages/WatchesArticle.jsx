@@ -45,30 +45,51 @@ export default function WatchesArticle() {
     loadArticle();
   }, [slug]);
 
-   // ✅ Adsterra Social Bar
+  // ADSTERRA (WORKING FOR ALL ADS)
+
   useEffect(() => {
+  if (!article) return;
+
+  const loadNativeAd = (containerId) => {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    // clear container
+    container.innerHTML = "";
+
+    // create required inner container
+    const inner = document.createElement("div");
+    inner.id = "container-948b0e01d6ffb9cd796c08ea0ac4f5a1";
+
+    container.appendChild(inner);
+
+    // inject script with cache breaker
     const script = document.createElement("script");
     script.src =
-      "https://pl29090120.profitablecpmratenetwork.com/3d/21/15/3d2115ae1266f8ee58e11784779cbff0.js";
+      "https://pl29201683.profitablecpmratenetwork.com/948b0e01d6ffb9cd796c08ea0ac4f5a1/invoke.js?v=" +
+      Date.now();
+
     script.async = true;
-    document.body.appendChild(script);
-  }, []);
+    script.setAttribute("data-cfasync", "false");
 
+    container.appendChild(script);
+  };
 
-  /* ================= ADS ================= */
-  useEffect(() => {
-    if (!article) return;
-    setTimeout(() => {
-      try {
-        if (window.adsbygoogle) {
-          window.adsbygoogle.push({});
-          window.adsbygoogle.push({});
-        }
-      } catch {}
-    }, 900);
-  }, [article]);
+  // FIRST AD
+  setTimeout(() => {
+    loadNativeAd("native-ad-1");
+  }, 1000);
 
-  /* ================= SHARE CLOSE ================= */
+  // SECOND AD (RESET + DELAY)
+  setTimeout(() => {
+    // reset Adsterra global to allow second load
+    window.atOptions = undefined;
+
+    loadNativeAd("native-ad-2");
+  }, 5000);
+
+}, [article]);
+// Adsterra load code finished
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (shareRef.current && !shareRef.current.contains(e.target)) {
@@ -224,27 +245,13 @@ export default function WatchesArticle() {
 
                 {index === 1 && (
                   <div className="mid-article-ad">
-                    <ins
-                      className="adsbygoogle"
-                      style={{ display: "block", width: "100%", height: "250px" }}
-                      data-ad-client="ca-pub-xxxxxxxxxxxxx"
-                      data-ad-slot="3333333333"
-                      data-ad-format="rectangle"
-                      data-full-width-responsive="true"
-                    />
+                      <div id="native-ad-1"></div>
                   </div>
                 )}
 
                 {index === paragraphs.length - 4 && (
                   <div className="mid-article-ad">
-                    <ins
-                      className="adsbygoogle"
-                      style={{ display: "block", width: "100%", height: "250px" }}
-                      data-ad-client="ca-pub-xxxxxxxxxxxxx"
-                      data-ad-slot="4444444444"
-                      data-ad-format="rectangle"
-                      data-full-width-responsive="true"
-                    />
+                      <div id="native-ad-2"></div>
                   </div>
                 )}
               </div>

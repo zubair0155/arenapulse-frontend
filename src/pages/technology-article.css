@@ -159,22 +159,10 @@
   gap:20px;
 }
 
-.technology-article-page .ad-300x600{
-  width:300px;
-  height:600px;
-  background:rgba(0,0,0,0.04);
-  border-radius:10px;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  position: sticky;
-}
 /* Mid Article Ad Placeholder */
 .mid-article-ad {
   margin: 40px 0;
   min-height: 120px;          
-  background-color: #f1f1f1;  
-  border: 1px solid #ddd;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -182,9 +170,8 @@
   position: relative;
 }
 
-/* Optional: Show AD label */
+/* Optional: Show AD label advertisement */
 .mid-article-ad::before {
-  content: "Advertisement";
   position: absolute;
   top: 8px;
   font-size: 12px;
