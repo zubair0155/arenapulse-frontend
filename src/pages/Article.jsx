@@ -175,6 +175,14 @@ export default function Article() {
           })}
         </script>
       </Helmet>
+     
+      
+        {/* TOP AFFILIATE */}
+      <div className="top-affiliate-banner">
+        <a href="https://www.checkout-ds24.com/redir/628615/zubair0155/" target="_blank" rel="noopener noreferrer">
+          <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/watches/Money-AI.png" alt="Affiliate Banner" />
+        </a>
+      </div>
 
       <article className="news-article-page">
         <div className="article-layout">
