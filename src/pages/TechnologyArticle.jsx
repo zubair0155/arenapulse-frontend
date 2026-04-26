@@ -157,7 +157,7 @@ export default function TechnologyArticle() {
            {/* TOP AFFILIATE */}
       <div className="top-affiliate-banner">
         <a href="https://www.digistore24.com/redir/680231/zubair0155/" target="_blank" rel="noopener noreferrer">
-          <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/watches/7-AI.png" alt="Affiliate Banner" />
+          <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/watches/7-AI.jpg" alt="Affiliate Banner" />
         </a>
       </div>
 

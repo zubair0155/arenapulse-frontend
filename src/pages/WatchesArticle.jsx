@@ -181,6 +181,13 @@ export default function WatchesArticle() {
         </script>
       </Helmet>
 
+           {/* TOP AFFILIATE */}
+      <div className="top-affiliate-banner">
+        <a href="http://heikoboos.com/how-to-make-money-with-plr#aff=zubair0155" target="_blank" rel="noopener noreferrer">
+          <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/watches/PLR.jpg" alt="Affiliate Banner" />
+        </a>
+      </div>
+      
       <div className="watches-article-page">
         <div className="article-main-full">
           <div className="title-section">
@@ -247,12 +254,13 @@ export default function WatchesArticle() {
                   <div className="mid-article-ad">
                       <div id="native-ad-1"></div>
                   </div>
-                )}
+                  )}
 
-                {index === paragraphs.length - 4 && (
-                  <div className="mid-article-ad">
-                      <div id="native-ad-2"></div>
-                  </div>
+                     {index === paragraphs.length - 4 && (
+                       <div className="mid-article-ad">
+                         <div id="native-ad-2"></div>
+                       </div>
+                
                 )}
               </div>
             ))}
