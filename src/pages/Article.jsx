@@ -236,7 +236,7 @@ export default function Article() {
                 </div>
               </div>
             )}
-
+            
             <div className="article-content">
               {paragraphs.map((para, index) => (
                 <div key={index}>

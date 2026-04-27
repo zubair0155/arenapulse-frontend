@@ -97,7 +97,7 @@
 .technology-article-page .share-corner{
   position:absolute;
   bottom:-35px;
-  right:8px;
+  right:5px;
 }
 
 .technology-article-page .share-btn{
@@ -305,7 +305,7 @@
 
   .technology-article-page .tech-meta {
     position: absolute !important;
-    top: 850px !important;
+    top: 845px !important;
     left: 31px !important;
     margin: 0 !important;
     bottom: auto !important;

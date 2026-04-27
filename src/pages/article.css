@@ -89,8 +89,8 @@
 
 .news-article-page .share-corner{
   position:absolute;
-  bottom:-10px;
-  right:8px;
+  bottom:1px;
+  right:5px;
 }
 
 .news-article-page .share-btn{

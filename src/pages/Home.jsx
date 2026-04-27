@@ -111,20 +111,13 @@ export default function Home() {
         </script>
       </Helmet>
 
-      {/* NAV BAR AD */}
-      <div className="nav-horizontal-ad">
-        <div style={{ textAlign: "center", fontSize: "12px", color: "#888", marginBottom: "5px" }}>
-            Advertisement
-        </div>
-        <ins
-          className="adsbygoogle"
-          style={{ display: "block", width: "970px", height: "170px", overflow: "hidden" }}
-          data-ad-client="ca-pub-xxxxxxxxxxxxx"
-          data-ad-slot="9999999999"
-          data-full-width-responsive="true"
-        ></ins>
-      </div>
-
+        {/* TOP AFFILIATE */}
+      <div className="home-top-affiliate-banner">
+        <a href="https://www.checkout-ds24.com/redir/673156/zubair0155/" target="_blank" rel="noopener noreferrer">
+          <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/dropshiping.jpg" alt="Affiliate Banner" />
+        </a>
+      </div> 
+     
       <div className="headlines">
 
         {headlines[0] && (
