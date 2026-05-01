@@ -157,6 +157,57 @@
   border-radius:2px;
 }
 
+.watch-top-affiliate-banner {
+  width: 100%;
+  text-align: center;
+  margin: 15px 0 25px 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.watch-top-affiliate-banner a {
+  display: inline-block;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.watch-top-affiliate-banner img {
+  width: 100%;
+  height: 190px;
+  max-width: 1200px;
+  border-radius: 6px;
+  display: block;
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.watch-mid-affiliate-banner {
+  width: 100%;
+  text-align: center;
+  margin: 15px 0 25px 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.watch-mid-affiliate-banner a {
+  display: inline-block;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.watch-mid-affiliate-banner img {
+  width: 100%;
+  height: 260px;
+  max-width: 1200px;
+  display: block;
+}
+
+.image-wrapper {
+  position: relative;
+}
+
 /* ===== RESPONSIVE ===== */
 
 @media (max-width:900px){
@@ -164,14 +215,17 @@
   .watch-featured-main img{
     height:260px;
   }
+
   .watch-row{
     flex-direction:column;
   }
+
   .watch-image img{
     height:200px;
   }
-  
+
 }
+
 /* ===== NAV BANNER ===== */
 
 .watch-nav-banner{
@@ -188,25 +242,11 @@
   height:170px !important;
 }
 
-/* ===== FINAL MOBILE FIX (MATCH TECHNOLOGY PAGE) ===== */
+/* ===== FINAL MOBILE FIX ===== */
 
 @media (max-width:768px){
 
-  .watch-nav-banner{
-    width:100%;
-    max-width:100%;
-    padding:6px 0;
-    overflow:hidden;
-    box-sizing:border-box;
-  }
-
-  .watch-nav-banner ins.adsbygoogle{
-    width:100% !important;
-    max-width:100% !important;
-    height:auto !important;
-    display:block !important;
-  }
-
+  .watch-nav-banner,
   .watch-horizontal-ad{
     width:100%;
     max-width:100%;
@@ -215,6 +255,7 @@
     box-sizing:border-box;
   }
 
+  .watch-nav-banner ins.adsbygoogle,
   .watch-horizontal-ad ins.adsbygoogle{
     width:100% !important;
     max-width:100% !important;
@@ -237,6 +278,7 @@
   }
 
 }
+
 /* FIX TEXT OVERFLOW */
 .watch-text h3,
 .watch-text p,
@@ -246,50 +288,50 @@
   overflow-wrap: break-word;
   word-break: break-word;
 }
-/* ===== FINAL FIX: WATCH NAV AD BANNER ===== */
 
-.watch-nav-banner{
-  position:relative;
-  height:170px;
-  max-height:170px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:hidden;
+/* ========================= */
+/* 🔥 FINAL OVERRIDE FIXES 🔥 */
+/* ========================= */
+
+/* Prevent horizontal scroll */
+html, body {
+  overflow-x: hidden;
 }
 
-/* lock ad size */
+/* Force ALL images to stay inside screen */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Fix big ad containers on all devices */
+.watch-horizontal-ad-top,
+.watch-horizontal-ad-bottom{
+  width:100% !important;
+  max-width:970px !important;
+  height:auto !important;
+}
+
+/* Fix ad inner elements */
+.watch-horizontal-ad-top ins,
+.watch-horizontal-ad-bottom ins,
+.watch-horizontal-ad-top iframe,
+.watch-horizontal-ad-bottom iframe{
+  width:100% !important;
+  height:auto !important;
+}
+
+/* Fix nav banner ad overflow */
 .watch-nav-banner ins.adsbygoogle{
-  width:970px !important;
-  height:170px !important;
-  max-height:170px !important;
-  display:inline-block !important;
+  width:100% !important;
+  max-width:970px !important;
+  height:auto !important;
 }
 
-/* center advertisement text */
-.watch-nav-banner .ad-label{
-  position:absolute;
-  top:2px;
-  left:50%;
-  transform:translateX(-50%);
-  font-size:11px;
-  color:#666;
-  z-index:10;
-  pointer-events:none;
-}
-
-/* MOBILE FIX */
+/* Small spacing fix for mobile */
 @media (max-width:768px){
-
-  .watch-nav-banner{
-    height:170px !important;
-    max-height:170px !important;
-    overflow:hidden;
+  .watch-row{
+    gap:10px;
   }
-
-  .watch-nav-banner ins.adsbygoogle{
-    height:170px !important;
-    max-height:170px !important;
-  }
-
 }

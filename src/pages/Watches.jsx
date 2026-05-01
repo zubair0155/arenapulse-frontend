@@ -92,19 +92,12 @@ export default function Watches() {
         </script>
       </Helmet>
 
-      {/* NAV AD */}
-      <div className="watch-nav-banner">
-        <div style={{ textAlign:"center",fontSize:"12px",color:"#888",marginBottom:"5px"}}>
-          Advertisement
-        </div>
-        <ins
-          className="adsbygoogle"
-          style={{ display:"block", width:"970px", height:"170px"}}
-          data-ad-client="ca-pub-xxxxxxxxxxxxx"
-          data-ad-slot="9999999999"
-          data-full-width-responsive="true">
-        </ins>
-      </div>
+       {/* TOP AFFILIATE */}
+      <div className="watch-top-affiliate-banner">
+        <a href="https://www.checkout-ds24.com/redir/673156/zubair0155/" target="_blank" rel="noopener noreferrer">
+          <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/dropshiping.jpg" alt="Affiliate Banner" />
+        </a>
+      </div> 
 
       {/* SINGLE BIG HEADLINE */}
       {headlines[0] && (
@@ -122,20 +115,12 @@ export default function Watches() {
         </Link>
       )}
 
-      {/* TOP AD */}
-      <div className="watch-horizontal-ad-top">
-        <div style={{ textAlign:"center",fontSize:"12px",color:"#888",marginBottom:"5px"}}>
-          Advertisement
-        </div>
-        <ins
-          className="adsbygoogle"
-          style={{ display:"block", width:"970px", height:"250px"}}
-          data-ad-client="ca-pub-xxxxxxxxxxxxx"
-          data-ad-slot="1111111111"
-          data-ad-format="rectangle"
-          data-full-width-responsive="true">
-        </ins>
-      </div>
+       {/* Mid AFFILIATE */}
+        <div className="watch-mid-affiliate-banner">
+            <a href="https://www.checkout-ds24.com/redir/401187/zubair0155/" target="_blank" rel="noopener noreferrer">
+             <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/Paid-online.jpg" alt="Affiliate Banner" />
+            </a>
+        </div> 
 
       {/* ARTICLE LIST */}
       <div className="watch-list">
@@ -169,26 +154,17 @@ export default function Watches() {
               </div>
 
             </Link>
-
-            {index === 7 && (
-              <div className="watch-horizontal-ad-bottom">
-                <div style={{ textAlign:"center",fontSize:"12px",color:"#888",marginBottom:"5px"}}>
-                  Advertisement
-                </div>
-                <ins
-                  className="adsbygoogle"
-                  style={{ display:"block", width:"970px", height:"250px"}}
-                  data-ad-client="ca-pub-xxxxxxxxxxxxx"
-                  data-ad-slot="2222222222"
-                  data-ad-format="rectangle"
-                  data-full-width-responsive="true">
-                </ins>
-              </div>
-            )}
           </React.Fragment>
         ))}
       </div>
 
+          {/* Mid AFFILIATE */}
+        <div className="watch-mid-affiliate-banner">
+            <a href="https://www.checkout-ds24.com/redir/401187/zubair0155/" target="_blank" rel="noopener noreferrer">
+             <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/Paid-online.jpg" alt="Affiliate Banner" />
+            </a>
+        </div> 
+        
       {normals.length > visibleCount && (
         <button className="more-btn" onClick={showMore}>More</button>
       )}

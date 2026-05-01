@@ -198,6 +198,30 @@ html, body {
 }
 .image-wrapper {
   position: relative;
+
+}
+.home-mid-affiliate-banner {
+  width: 100%;
+  text-align: center;
+  margin: 15px 0 25px 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.home-mid-affiliate-banner a {
+  display: inline-block;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.home-mid-affiliate-banner img {
+  width: 100%;
+  height: 260px;
+  max-width: 1200px;
+  display: block;
+}
+.image-wrapper {
+  position: relative;
 }
 /* ================= MOBILE ================= */
 

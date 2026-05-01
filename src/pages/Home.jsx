@@ -183,19 +183,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="home-ad">
-        <div style={{ textAlign: "center", fontSize: "12px", color: "#888", marginBottom: "5px" }}>
-            Advertisement
-        </div>
-        <ins
-          className="adsbygoogle"
-          style={{ display: "block", width: "970px", height: "250px" }}
-          data-ad-client="ca-pub-xxxxxxxxxxxxx"
-          data-ad-slot="1111111111"
-          data-ad-format="rectangle"
-          data-full-width-responsive="true"
-        ></ins>
-      </div>
+          {/* Mid AFFILIATE */}
+        <div className="home-mid-affiliate-banner">
+            <a href="http://www.goslimplan.fit#aff=zubair0155" target="_blank" rel="noopener noreferrer">
+             <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/30-days.jpg" alt="Affiliate Banner" />
+            </a>
+        </div> 
 
       <div className="articles-grid">
 
@@ -227,22 +220,14 @@ export default function Home() {
             </div>
           </div>
         ))}
-
       </div>
 
-      <div className="home-ad">
-        <div style={{ textAlign: "center", fontSize: "12px", color: "#888", marginBottom: "5px" }}>
-            Advertisement
-        </div>
-        <ins
-          className="adsbygoogle"
-          style={{ display: "block", width: "970px", height: "250px" }}
-          data-ad-client="ca-pub-xxxxxxxxxxxxx"
-          data-ad-slot="2222222222"
-          data-ad-format="rectangle"
-          data-full-width-responsive="true"
-        ></ins>
-      </div>
+         {/* Mid AFFILIATE */}
+      <div className="home-mid-affiliate-banner">
+        <a href="https://hosterlo.com/business-package/#aff=zubair0155" target="_blank" rel="noopener noreferrer">
+          <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/Hosterlo.jpg" alt="Affiliate Banner" />
+        </a>
+      </div> 
 
       {normals.length > visibleCount && (
         <button className="more-btn" onClick={showMore}>
