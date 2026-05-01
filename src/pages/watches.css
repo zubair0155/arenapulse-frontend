@@ -335,3 +335,41 @@ img {
     gap:10px;
   }
 }
+/* Prevent horizontal scroll completely */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Fix flex overflow issue (VERY IMPORTANT) */
+.watch-row {
+  min-width: 0;
+}
+
+.watch-text,
+.watch-image {
+  min-width: 0;
+}
+
+/* Fix image container */
+.watch-image {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+/* Ensure flex stacks cleanly on mobile */
+@media (max-width:768px){
+
+  .watch-row{
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .watch-image{
+    width: 100%;
+  }
+
+  .watch-image img{
+    width: 100%;
+    height: auto;
+  }
+}
