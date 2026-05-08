@@ -1,11 +1,15 @@
 .contact-page{
-  max-width:900px;
+  max-width:1200px;
   margin:auto;
   padding:20px;
 }
 
-.contact-page h1{
-  margin-bottom:20px;
+.site-logo{
+  font-size:70px;
+  font-weight:700;
+  font-family:'Allura', cursive;
+  letter-spacing:1px;
+  cursor:pointer;
 }
 
 .contact-page h2{

@@ -1,5 +1,5 @@
 .about-page {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 40px auto;
   padding: 20px;
   font-family: Arial, sans-serif;
@@ -7,7 +7,7 @@
 
 .about-page h1 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 0;
 }
 
 .about-page section p {
