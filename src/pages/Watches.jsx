@@ -46,12 +46,25 @@ export default function Watches() {
     load();
   }, []);
 
-  const headlines = articles.filter(a => a.position === "headline").slice(0, 1);
+  // ===== HEADLINE LOGIC =====
 
-  const normals = articles.filter(a => {
-  if (a.position !== "headline") return true;
-  return headlines[0] && a.id !== headlines[0].id;
-    });
+  // Get all headline articles
+  const allHeadlines = articles.filter(
+  a => a.position === "headline"
+  );
+
+  // Keep only newest 1 headline
+  const headlines = allHeadlines.slice(0, 1);
+
+  // Move old headline articles to normal list
+  const remainingHeadlines = allHeadlines.slice(1);
+
+  // Normal articles + previous headlines
+  const normals = [
+  ...articles.filter(a => a.position !== "headline"),
+  ...remainingHeadlines
+  ];
+  // End
   const visibleArticles = normals.slice(0, visibleCount);
   const showMore = () => setVisibleCount(prev => prev + 12);
 

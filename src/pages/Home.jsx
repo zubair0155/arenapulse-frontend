@@ -84,7 +84,7 @@ export default function Home() {
     <main className="home-container">
 
       <Helmet>
-        <title>ArenaPulse – Latest Breaking News & Tech</title>
+        <title>ArenaPulse – Latest AI News & Tech</title>
 
         <meta
           name="description"
