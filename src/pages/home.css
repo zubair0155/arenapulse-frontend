@@ -253,13 +253,13 @@ html, body {
   }
 
   .headline-main{
-    height:260px;
+    height:200px;
   }
   .headline-main .overlay{
     padding:12px;
   }
   .headline-small{
-    height:140px;
+    height:160px;
   }
 
   .articles-grid{

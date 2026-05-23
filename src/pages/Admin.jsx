@@ -123,7 +123,7 @@ export default function Admin() {
 
         <select value={category} onChange={e => setCategory(e.target.value)}>
           <option value="news">News</option>
-          <option value="sports">Sports</option>
+          <option value="Watches">Watches</option>
           <option value="technology">Technology</option>
         </select>
 

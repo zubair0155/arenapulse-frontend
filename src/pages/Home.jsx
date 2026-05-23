@@ -88,7 +88,7 @@ export default function Home() {
 
         <meta
           name="description"
-          content="ArenaPulse delivers the latest breaking news, trending stories, and live sports updates."
+          content="ArenaPulse delivers the latest ai news, trending updates."
         />
 
         <link rel="canonical" href="https://arenapulse.site/" />

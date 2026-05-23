@@ -7,53 +7,82 @@ export default function About() {
 
       <section className="about-info">
 
-        <p>
-          Welcome to <strong>ArenaPulse</strong> — your modern digital destination for News, Technology, 
-          and product insights. We deliver timely, reliable, and engaging content to keep you informed 
-          in a fast-moving world.
-        </p>
+  <h1>About ArenaPulse</h1>
 
-        <h2>📰 News Coverage</h2>
-        <p>
-          ArenaPulse provides daily news updates including breaking news,
-          global events, stock market updates, and important national stories.
-          Our goal is to present information clearly and responsibly.
-        </p>
+  <p>
+    Welcome to <strong>ArenaPulse</strong> — your trusted destination for the latest 
+    <strong>AI trending news, technology updates, gadget insights, smartphone coverage, 
+    and watch reviews</strong>. Our platform is built for readers who want fast, reliable, 
+    and easy-to-understand content about the digital world and smart buying decisions.
+  </p>
 
-        <h2>💻 Technology Updates</h2>
-        <p>
-          Our Technology section covers the latest in innovation, gadgets,
-          artificial intelligence, startups, cybersecurity, and digital trends.
-          We simplify complex tech topics so everyone can understand and stay ahead.
-        </p>
+  <p>
+    At ArenaPulse, we focus on delivering accurate, engaging, and informative content 
+    across artificial intelligence, emerging technologies, consumer gadgets, and watch 
+    recommendations. Whether you're looking for the latest AI breakthrough, a smartphone 
+    launch, gadget reviews, or the best watch to buy, we bring valuable insights in one place.
+  </p>
 
-        <h2>⌚ Watches & Buying Guides</h2>
-        <p>
-          Our Watches section features detailed articles about smart watches, luxury watches, 
-          and affordable everyday timepieces. We provide helpful information, comparisons, 
-          and highlights to help readers choose the right watch based on their needs and budget.
-        </p>
+  <h2>🤖 AI Trending News</h2>
 
-        <p>
-          Some articles may include affiliate links to trusted marketplaces such as Amazon, 
-          eBay, AliExpress, or other online stores. When you click these links and make a purchase.
-        </p>
+  <p>
+    Our AI section covers the latest developments in 
+    <strong>Artificial Intelligence, ChatGPT, OpenAI, machine learning, automation, 
+    robotics, generative AI, and future technology trends</strong>. We publish trending 
+    AI news, industry updates, product launches, and innovations shaping the future.
+  </p>
 
-        <h2>📝 Articles We Publish</h2>
-        <ul>
-          <li>Sports news (1–3 articles per day)</li>
-          <li>Breaking news updates</li>
-          <li>Stock market insights</li>
-          <li>Technology analysis and trends</li>
-          <li>Watch reviews and buying guides</li>
-        </ul>
+  <h2>📱 Technology & Gadgets</h2>
 
-        <h2>🎯 Our Mission</h2>
-        <p>
-          At ArenaPulse, we aim to provide accessible, transparent,
-          and valuable journalism and product insights that inform 
-          and empower our readers.
-        </p>
+  <p>
+    Stay updated with the newest trends in technology. Our Tech section features 
+    <strong>smartphone news, gadget reviews, tech updates, software trends, 
+    cybersecurity insights, and consumer electronics coverage</strong>. 
+    We simplify complex technology topics to help readers stay informed 
+    and make smarter decisions.
+  </p>
+
+  <h2>⌚ Watch Reviews & Buying Guides</h2>
+
+  <p>
+    Looking for the perfect watch? ArenaPulse provides 
+    <strong>watch reviews, smartwatch comparisons, luxury watch insights, 
+    affordable watch recommendations, and buying guides</strong> to help 
+    users find the right timepiece for their style, needs, and budget.
+  </p>
+
+  <p>
+    Some of our articles may contain affiliate links to trusted online marketplaces. 
+    If you click a product link and make a purchase, we may earn a small commission 
+    at no extra cost to you. This helps support our work and allows us to continue 
+    publishing honest reviews and high-quality content.
+  </p>
+
+  <h2>📰 What We Cover</h2>
+
+  <ul>
+    <li>Trending AI news and updates</li>
+    <li>Artificial Intelligence tools and innovations</li>
+    <li>Smartphone launches and gadget reviews</li>
+    <li>Technology trends and digital innovations</li>
+    <li>Watch reviews and buying recommendations</li>
+    <li>Product comparisons and buying guides</li>
+  </ul>
+
+  <h2>🎯 Our Mission</h2>
+
+  <p>
+    Our mission is simple: to provide readers with 
+    <strong>reliable tech information, trending AI updates, 
+    and honest product recommendations</strong> that help people 
+    stay informed and make confident purchasing decisions.
+  </p>
+
+  <p>
+    Thank you for visiting <strong>ArenaPulse</strong>. We’re committed 
+    to bringing you quality content that keeps you ahead in the fast-moving 
+    world of technology and innovation.
+  </p>
 
         <h2>📩 Contact</h2>
         <p>

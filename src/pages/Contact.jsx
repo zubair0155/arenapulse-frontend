@@ -21,7 +21,7 @@ export default function Contact() {
 
       <h2>About ArenaPulse</h2>
       <p>
-        ArenaPulse is an online platform providing breaking news,
+        ArenaPulse is an online platform providing ai news,
         technology updates, and watches information.
         Our goal is to deliver accurate and fast updates from
         around the world.

@@ -23,10 +23,10 @@ function App() {
 
       {/* SEO META */}
       <Helmet>
-        <title>ArenaPulse – AI - Technology Information & Watches </title>
+        <title>ArenaPulse – AI News - Technology Information & Watches </title>
         <meta
           name="description"
-          content="ArenaPulse brings breaking world news, trending stories, and live sports channels in one place."
+          content="ArenaPulse brings ai news, tech article, and watches review in one place."
         />
         <link rel="canonical" href="https://arenapulse.site/" />
 
