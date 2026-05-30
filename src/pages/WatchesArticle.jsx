@@ -45,51 +45,6 @@ export default function WatchesArticle() {
     loadArticle();
   }, [slug]);
 
-  // ADSTERRA (WORKING FOR ALL ADS)
-
-  useEffect(() => {
-  if (!article) return;
-
-  const loadNativeAd = (containerId) => {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-
-    // clear container
-    container.innerHTML = "";
-
-    // create required inner container
-    const inner = document.createElement("div");
-    inner.id = "container-948b0e01d6ffb9cd796c08ea0ac4f5a1";
-
-    container.appendChild(inner);
-
-    // inject script with cache breaker
-    const script = document.createElement("script");
-    script.src =
-      "https://pl29201683.profitablecpmratenetwork.com/948b0e01d6ffb9cd796c08ea0ac4f5a1/invoke.js?v=" +
-      Date.now();
-
-    script.async = true;
-    script.setAttribute("data-cfasync", "false");
-
-    container.appendChild(script);
-  };
-
-  // FIRST AD
-  setTimeout(() => {
-    loadNativeAd("native-ad-1");
-  }, 1000);
-
-  // SECOND AD (RESET + DELAY)
-  setTimeout(() => {
-    // reset Adsterra global to allow second load
-    window.atOptions = undefined;
-
-    loadNativeAd("native-ad-2");
-  }, 5000);
-
-}, [article]);
-// Adsterra load code finished
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (shareRef.current && !shareRef.current.contains(e.target)) {
@@ -184,7 +139,7 @@ export default function WatchesArticle() {
            {/* TOP AFFILIATE */}
       <div className="top-affiliate-banner">
         <a href="http://heikoboos.com/how-to-make-money-with-plr#aff=zubair0155" target="_blank" rel="noopener noreferrer">
-          <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/watches/PLR.jpg" alt="Affiliate Banner" />
+          <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/PLR.jpg" alt="Affiliate Banner" />
         </a>
       </div>
       
@@ -250,18 +205,19 @@ export default function WatchesArticle() {
               <div key={index}>
                 <div dangerouslySetInnerHTML={{ __html: para }} />
 
-                {index === 1 && (
-                  <div className="mid-article-ad">
-                      <div id="native-ad-1"></div>
-                  </div>
-                  )}
+         {index === Math.floor(paragraphs.length / 16) && 
+           <div className="Watches-article-mid-affiliate-banner">
+               <a href="http://www.goslimplan.fit#aff=zubair0155" target="_blank" rel="noopener noreferrer">
+                  <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/30-days.jpg" alt="Affiliate Banner" /></a>
+           </div>
+              }
 
-                     {index === paragraphs.length - 4 && (
-                       <div className="mid-article-ad">
-                         <div id="native-ad-2"></div>
-                       </div>
-                
-                )}
+         {index === paragraphs.length - 4 && (
+           <div className="Watches-article-mid-affiliate-banner">
+               <a href="http://www.goslimplan.fit#aff=zubair0155" target="_blank" rel="noopener noreferrer">
+                 <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/30-days.jpg" alt="Affiliate Banner" /></a>
+           </div>
+              )}
               </div>
             ))}
           </div>

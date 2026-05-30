@@ -214,6 +214,33 @@
 .tech-dot {
   color: #ffffff;
 }
+
+.technology-article-mid-affiliate-banner {
+  width: 100%;
+  text-align: center;
+  margin: 15px 0 25px 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.technology-article-mid-affiliate-banner a {
+  display: inline-block;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.technology-article-page .technology-article-mid-affiliate-banner img {
+  width: 100%;
+  max-width: 1200px;
+  height: 280px !important;
+  object-fit: fill;
+  display: block;
+  background: #fff; /* or transparent/black depending on design */
+}
+
+.image-wrapper {
+  position: relative;
+}
 /* ===============================
    MOBILE
 ================================ */

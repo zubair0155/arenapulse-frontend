@@ -157,7 +157,7 @@ export default function TechnologyArticle() {
            {/* TOP AFFILIATE */}
       <div className="top-affiliate-banner">
         <a href="https://www.digistore24.com/redir/680231/zubair0155/" target="_blank" rel="noopener noreferrer">
-          <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/watches/7-AI.jpg" alt="Affiliate Banner" />
+          <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/7-AI.jpg" alt="Affiliate Banner" />
         </a>
       </div>
 
@@ -213,17 +213,19 @@ export default function TechnologyArticle() {
                 <div key={index}>
                   <div dangerouslySetInnerHTML={{ __html: para }} />
 
-                  {index === 0 && (
-                    <div className="mid-article-ad">
-                      <div id="adsterra-1"></div>
-                    </div>
-                  )}
+         {index === Math.floor(paragraphs.length / 70) && 
+          <div className="technology-article-mid-affiliate-banner">
+               <a href="https://www.digistore24.com/redir/670693/zubair0155/" target="_blank" rel="noopener noreferrer">
+                  <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/Trading-Chart.jpg" alt="Affiliate Banner" /></a>
+          </div>
+             }
 
-                  {index === paragraphs.length - 5 && (
-                    <div className="mid-article-ad">
-                      <div id="adsterra-2"></div>
-                    </div>
-                  )}
+         {index === paragraphs.length - 8 && (
+           <div className="technology-article-mid-affiliate-banner">
+               <a href="https://www.checkout-ds24.com/redir/615550/zubair0155/" target="_blank" rel="noopener noreferrer">
+                 <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/Backlink.jpg" alt="Affiliate Banner" /></a>
+           </div>
+              )}
                 </div>
               ))}
             </div>

@@ -188,6 +188,30 @@
 .watches-dot {
   color: #ffffff;
 }
+
+.Watches-article-mid-affiliate-banner {
+  width: 100%;
+  text-align: center;
+  margin: 15px 0 25px 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.Watches-article-mid-affiliate-banner a {
+  display: inline-block;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.Watches-article-mid-affiliate-banner img {
+  width: 100%;
+  height: 280px;
+  max-width: 1200px;
+  display: block;
+}
+.image-wrapper {
+  position: relative;
+}
 /* ===============================
    FIXES (IMPORTANT)
 ================================ */

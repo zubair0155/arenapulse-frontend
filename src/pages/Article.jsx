@@ -180,7 +180,7 @@ export default function Article() {
         {/* TOP AFFILIATE */}
       <div className="top-affiliate-banner">
         <a href="https://www.checkout-ds24.com/redir/628615/zubair0155/" target="_blank" rel="noopener noreferrer">
-          <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/watches/Money-AI.png" alt="Affiliate Banner" />
+          <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/Money-AI.png" alt="Affiliate Banner" />
         </a>
       </div>
 
@@ -240,23 +240,25 @@ export default function Article() {
             <div className="article-content">
               {paragraphs.map((para, index) => (
                 <div key={index}>
-                  <p dangerouslySetInnerHTML={{ __html: para }} />
+                <p dangerouslySetInnerHTML={{ __html: para }} />
+              
+         {index === Math.floor(paragraphs.length / 16) && 
+         <div className="article-mid-affiliate-banner">
+               <a href="https://www.digistore24.com/redir/670693/zubair0155/" target="_blank" rel="noopener noreferrer">
+                  <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/Trading-Chart.jpg" alt="Affiliate Banner" /></a>
+         </div>
+           }
 
-                {index === 0 && (
-                    <div className="mid-article-ad">
-                      <div id="adsterra-1"></div>
-                    </div>
-                  )}
-
-                  {index === paragraphs.length - 5 && (
-                    <div className="mid-article-ad">
-                      <div id="adsterra-2"></div>
-                    </div>
-                  )}
-                </div>
-              ))}
+           {index === paragraphs.length - 4 && (
+            <div className="article-mid-affiliate-banner">
+                <a href="https://www.checkout-ds24.com/redir/615550/zubair0155/" target="_blank" rel="noopener noreferrer">
+                  <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/Backlink.jpg" alt="Affiliate Banner" /></a>
             </div>
-          </div>
+               )}
+           </div>
+           ))}
+         </div>
+        </div>
 
           {/* ✅ SIDEBAR FIXED */}
           <aside className="article-sidebar">

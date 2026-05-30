@@ -186,8 +186,8 @@ export default function Technology() {
 
           {/* Mid AFFILIATE */}
       <div className="tech-mid-affiliate-banner">
-        <a href="https://hosterlo.com/business-package/#aff=zubair0155" target="_blank" rel="noopener noreferrer">
-          <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/Hosterlo.jpg" alt="Affiliate Banner" />
+        <a href="http://www.goslimplan.fit#aff=zubair0155" target="_blank" rel="noopener noreferrer">
+          <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/30-days.jpg" alt="Affiliate Banner" />
         </a>
       </div> 
       
