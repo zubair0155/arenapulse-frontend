@@ -173,8 +173,8 @@ export default function Watches() {
 
           {/* Mid AFFILIATE */}
         <div className="watch-mid-affiliate-banner">
-            <a href="https://www.checkout-ds24.com/redir/401187/zubair0155/" target="_blank" rel="noopener noreferrer">
-             <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/Paid-online.jpg" alt="Affiliate Banner" />
+            <a href="https://luxelifemastery24.systeme.io/68237e13?aff={aff_id}#aff=zubair0155" target="_blank" rel="noopener noreferrer">
+             <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/Freelancer.jpg" alt="Affiliate Banner" />
             </a>
         </div> 
         

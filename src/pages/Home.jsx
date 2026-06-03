@@ -224,8 +224,8 @@ export default function Home() {
 
          {/* Mid AFFILIATE */}
       <div className="home-mid-affiliate-banner">
-        <a href="https://official.smoothiediet.com/#aff=zubair0155" target="_blank" rel="noopener noreferrer">
-          <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/21-days-weight.jpg" alt="Affiliate Banner" />
+        <a href="https://luxelifemastery24.systeme.io/68237e13?aff={aff_id}#aff=zubair0155" target="_blank" rel="noopener noreferrer">
+          <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/Freelancer.jpg" alt="Affiliate Banner" />
         </a>
       </div> 
 

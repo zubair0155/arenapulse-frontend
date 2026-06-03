@@ -205,7 +205,7 @@ export default function WatchesArticle() {
               <div key={index}>
                 <div dangerouslySetInnerHTML={{ __html: para }} />
 
-         {index === Math.floor(paragraphs.length / 16) && 
+         {index === Math.floor(paragraphs.length / 20) && 
            <div className="Watches-article-mid-affiliate-banner">
                <a href="https://jointvive.com/ds/go/indexvs.php#aff=zubair0155" target="_blank" rel="noopener noreferrer">
                   <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/Joint-vive.jpg" alt="Affiliate Banner" /></a>
