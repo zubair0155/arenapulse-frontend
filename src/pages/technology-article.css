@@ -328,6 +328,25 @@
   }
 }
 
+/* ===== MOBILE AUTHOR + DATE FIX ===== */
+@media (max-width: 768px) {
+
+  .technology-article-page .tech-meta {
+    position: absolute !important;
+    top: 860px !important;
+    left: 31px !important;
+    margin: 0 !important;
+    bottom: auto !important;
+    right: auto !important;
+    font-size: 0px;
+    padding: 3px 6px;
+    background: none;
+    color: #fff;
+    z-index: 5;
+  }
+
+}
+
 @media (max-width: 768px) {
 
   .technology-article-page .article-sidebar {

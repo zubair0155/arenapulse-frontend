@@ -213,7 +213,7 @@ export default function TechnologyArticle() {
                 <div key={index}>
                   <div dangerouslySetInnerHTML={{ __html: para }} />
 
-         {index === Math.floor(paragraphs.length / 70) && 
+         {index === Math.floor(paragraphs.length / 80) && 
           <div className="technology-article-mid-affiliate-banner">
                <a href="https://www.digistore24.com/redir/670693/zubair0155/" target="_blank" rel="noopener noreferrer">
                   <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/Trading-Chart.jpg" alt="Affiliate Banner" /></a>

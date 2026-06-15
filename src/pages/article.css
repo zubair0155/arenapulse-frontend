@@ -281,7 +281,24 @@
     margin:0 auto;
   }
 }
+/* ===== MOBILE AUTHOR + DATE FIX ===== */
+@media (max-width: 768px) {
 
+  .news-article-page .article-meta {
+    position: absolute !important;
+    top: 700px !important;
+    left: 30px !important;
+    margin: 0 !important;
+    bottom: auto !important;
+    right: auto !important;
+    font-size: 0px;
+    padding: 3px 6px;
+    background: none;
+    color: #ffffff;
+    z-index: 5;
+  }
+
+}
 /* MOBILE FIX FOR SIDEBAR AD */
 @media (max-width: 768px) {
 

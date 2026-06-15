@@ -239,7 +239,23 @@
   overflow-wrap:break-word;
   word-break:break-word;
 }
+/* ===== MOBILE AUTHOR + DATE FIX ===== */
+@media (max-width: 768px) {
 
+  .watches-article-page .watches-meta {
+    position: absolute !important;
+    top: 800px !important;
+    left: 30px !important;
+    margin: 0 !important;
+    bottom: auto !important;
+    right: auto !important;
+    font-size: 0px;
+    padding: 3px 6px;
+    background: none;
+    color: #fff;
+    z-index: 5;
+  }
+}
 /* ===============================
    MOBILE
 ================================ */

@@ -242,14 +242,14 @@ export default function Article() {
                 <div key={index}>
                 <p dangerouslySetInnerHTML={{ __html: para }} />
               
-         {index === Math.floor(paragraphs.length / 16) && 
+         {index === Math.floor(paragraphs.length / 18) && 
          <div className="article-mid-affiliate-banner">
                <a href="https://www.digistore24.com/redir/670693/zubair0155/" target="_blank" rel="noopener noreferrer">
                   <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/Trading-Chart.jpg" alt="Affiliate Banner" /></a>
          </div>
            }
 
-           {index === paragraphs.length - 4 && (
+           {index === paragraphs.length - 7 && (
             <div className="article-mid-affiliate-banner">
                 <a href="https://www.checkout-ds24.com/redir/615550/zubair0155/" target="_blank" rel="noopener noreferrer">
                   <img src="https://hitegkdaplzdbjgbggsz.supabase.co/storage/v1/object/public/Ads-image/Backlink.jpg" alt="Affiliate Banner" /></a>
