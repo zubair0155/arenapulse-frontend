@@ -265,7 +265,14 @@
 .news-article-page .article-content em{
   font-style:italic;
 }
-
+@media (max-width: 768px) {
+  .news-article-page .article-content img {
+    max-width: 100%;
+    height: 240px;
+    display: block;
+    margin: 10px auto;
+  }
+}
 /* ===== FINAL MOBILE FIX ===== */
 @media(max-width:768px){
   .news-article-page .article-sidebar{
@@ -286,8 +293,8 @@
 
   .news-article-page .article-meta {
     position: absolute !important;
-    top: 700px !important;
-    left: 30px !important;
+    top: 860px !important;
+    left: 31px !important;
     margin: 0 !important;
     bottom: auto !important;
     right: auto !important;
